@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @font-face {
+  font-family: TerminaTest-Regular;
+  src: url("C:\Users\ADMIN\Downloads\Termina-Test\Termina Test");
+} */
+/* *
+{
+  margin:0;
+  padding:0;
+} */
+
+:root {
+  --black: #1b1b1b;
+  --yellow: #f29e01;
+  --white: #d7d4cb;
+  --orange: #ff7747;
+}
+#parent {
+  display: grid;
+  height: 55%;
+  grid-gap: 0 20px; /* row gap: 0, column gap: 20px */
+  grid-auto-flow: column; /* place grid items in columns */
+  grid-auto-columns: 50%; /* default size for the columns in the grid */
+  overflow-x: auto;
+}
