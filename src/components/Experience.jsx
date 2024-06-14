@@ -21,7 +21,7 @@ export const Experience = ({ isAboutOpen }) => {
       >
         <Avatar isAboutOpen={isAboutOpen} />
       </group>
-      <ambientLight intensity={1} />
+      <ambientLight intensity={2} />
     </>
   );
 };

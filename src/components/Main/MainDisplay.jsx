@@ -1,7 +1,20 @@
-import { motion } from "framer-motion";
+import {
+  easeIn,
+  easeInOut,
+  easeOut,
+  motion,
+  useAnimation,
+} from "framer-motion";
+import Resume from "../../assets/Juhi Resume_May_2024.pdf";
+import pattern from "../../assets/7.png";
+import projectImg from "../../assets/complete.png";
 import {
   listArray,
   listAnimation,
+  childVariants,
+  parentVariants,
+  socialLinks,
+  cards,
   // skillLists
 } from "../Data/Data";
 import { useEffect, useState } from "react";
@@ -9,7 +22,9 @@ import ContactMe from "../Contact Me/ContactMe";
 import Blogs from "../Blogs/Blogs";
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "../Experience";
-
+import closeArrow from "../../assets/cross_new.png";
+import AboutMe from "../About Me/AboutMe";
+import Projects from "../Projects/Projects";
 const MainDisplay = ({
   isAboutOpen,
   isBlogOpen,
@@ -18,6 +33,7 @@ const MainDisplay = ({
   expandDiv,
 }) => {
   const [showAvatar, setShowAvatar] = useState(true);
+  const controls = useAnimation();
 
   const [isPageLoadedFirstTime, setIsPageLoadedFirstTime] = useState(false);
   useEffect(() => {
@@ -36,8 +52,8 @@ const MainDisplay = ({
     setTimeout(() => {
       setShowAvatar(true);
     }, 1000);
-    setIsPageLoadedFirstTime(true);
-  }, []);
+    controls.start("visible");
+  }, [controls]);
 
   const openDivWithDelay = (targetDiv, setTargetDiv) => {
     setIsAboutOpen(false);
@@ -50,30 +66,55 @@ const MainDisplay = ({
   };
   return (
     <>
-      <div className="flex flex-grow items-center justify-center bg-blue-700 h-fit">
-        <div className="body-container bg-red-200 w-[96%] h-[40rem] rounded-[1.8rem]  gap-2 p-2 flex flex-col justify-center">
-          <div className="row-1 flex h-[52%]">
-            {isContactOpen && <ContactMe />}
+      <div className="flex flex-grow items-center justify-center h-[100%]">
+        <motion.div
+          initial="hidden"
+          animate={controls}
+          variants={parentVariants}
+          className="body-container w-[96%] h-[38rem] rounded-[1.8rem]  gap-2 p-2 flex flex-col justify-center"
+        >
+          <motion.div className="row-1 gap-3 flex h-[52%]">
+            {isContactOpen && (
+              <ContactMe isContactOpen={isContactOpen} expandDiv={expandDiv} />
+            )}
             {isBlogOpen && <Blogs expandDiv={expandDiv} />}
-            <div className="cell-1 w-[70%] bg-pink-900 p-5">
+            <motion.div
+              variants={childVariants}
+              className="cell-1 w-[70%] rounded-[1.8rem] bg-pink-400 p-7 relative overflow-hidden text-left text-[340%] "
+            >
               {" "}
               Transforming Ideas into Experiences.
-            </div>
+              <div className=" float-right absolute -right-[7%] -top-[20%] ">
+                <img
+                  src={pattern}
+                  alt="pattern"
+                  className="  w-[16rem] h-[16rem] rotate-[80deg] opacity-40"
+                ></img>
+              </div>
+            </motion.div>
             <motion.div
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.5,
-                ease: [0, 0.71, 0.2, 1.01],
-                delay: 0.1,
-              }}
+              variants={childVariants}
               layout
               data-isOpen={isAboutOpen}
               onClick={() => expandDiv("About")}
               className={`${isAboutOpen ? "expanded" : "w-[40%]"}
-               cell-2 bg-green-200 w-[40%]`}
+               cell-2 flex bg-green-200  rounded-[1.8rem] overflow-hidden cursor-default`}
             >
-              <motion.div className="about-div-closed w-[100%] h-[100%] bg-green-900">
+              <motion.div
+                // initial={{ opacity: 0, scale: 0 }}
+                // animate={{ opacity: 1, scale: 1 }}
+                // transition={{
+                //   duration: 0.5,
+                //   ease: [0, 0.71, 0.2, 1.01],
+                //   delay: 0.1,
+                // }}
+                // layout
+                className={` ${
+                  !isAboutOpen
+                    ? "about-div-closed  w-[100%] h-[100%]"
+                    : "w-[40%] h-[100%]"
+                } cursor-pointer `}
+              >
                 {showAvatar && (
                   <Canvas
                     className={`w-full h-full
@@ -86,59 +127,18 @@ const MainDisplay = ({
                   </Canvas>
                 )}
               </motion.div>
-
               {isAboutOpen && (
                 // e6d6b3
-                <div className="text-left bg-[#e0d1b1] rounded-r-[1.8rem] p-4  -ml-[10%] ">
-                  <div className="float-right w-full h-[100%]">
-                    <div className="flex w-[65%]   float-right text-center justify-between">
-                      <h1 className="text-6xl">About Me</h1>
-                      <img
-                        src={close}
-                        alt="close"
-                        className="cursor-pointer  w-8 h-8 mt-3 "
-                        onClick={() => expandDiv("About")}
-                      ></img>
-                    </div>
-
-                    <p className="mt-[14%] text-lg px-3  text-justify ">
-                      I thrive on continuous learning and teamwork, with a
-                      natural aptitude for leadership. Excited about
-                      opportunities in both technical fields and management, I
-                      aim to create supportive environments where everyone can
-                      flourish. Eager to expand my skills, I'm prepared to
-                      tackle new challenges head-on and leave a positive mark.
-                      Combining my passion for growth with a dedication to
-                      fostering collaboration, I'm poised to navigate
-                      complexities and drive impactful change. Ready to embrace
-                      diverse opportunities, I'm committed to making meaningful
-                      contributions wherever I go.
-                    </p>
-                    <h1 className="mt-6 text-4xl px-3">Skills:</h1>
-                    <div className="grid grid-cols-4 grid-rows-2 gap-5 mt-7 float-right w-[80%] ">
-                      {/* {skillList.map((item, index) => {
-                        return (
-                          <>
-                            <div
-                              key={index}
-                              className=" rounded shadow-lg shadow-[#c9b893] w-20 h-14 flex justify-center items-center"
-                            >
-                              <img src={item.icon} className="w-7 h-7" />
-                            </div>
-                          </>
-                        );
-                      })}{" "} */}
-                    </div>
-                  </div>
-                </div>
-              )}
+                <AboutMe />
+              )}{" "}
             </motion.div>
-          </div>
-          <div className="row-2 flex bg-yellow-400 h-[47.5%]">
-            <div className="inner-split flex w-[70%] bg-purple-200">
+          </motion.div>
+          <div className="row-2 flex h-[47.5%] gap-3">
+            <div className="inner-split gap-3 flex w-[70%]">
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
+                variants={childVariants}
                 transition={{
                   duration: 0.5,
                   ease: [0, 0.71, 0.2, 1.01],
@@ -146,24 +146,37 @@ const MainDisplay = ({
                 }}
                 layout
                 data-isOpen={isProjectOpen}
-                onClick={() => expandDiv("Projects")}
                 className={`${
                   isProjectOpen ? "expanded" : " w-[47.50%]"
-                } bg-slate-500 project-div`}
+                }  project-div rounded-[1.8rem] `}
               >
-                {isProjectOpen && (
+                {isProjectOpen && <Projects expandDiv={expandDiv} />}
+                {!isProjectOpen && (
                   <>
-                    <div>jg</div>
-                    <div>fvug</div>
+                    <div
+                      className=" w-[100%] h-[100%] bg-blue-200 p-5 relative flex flex-col items-center cursor-pointer rounded-[1.8rem] "
+                      onClick={() => expandDiv("Projects")}
+                    >
+                      <div className="w-[100%] h-[50%]">
+                        <img
+                          src={projectImg}
+                          className="float-right p-2 w-[40%] h-[100%] opacity-60"
+                        ></img>
+                      </div>
+                      <div className="w-[80%]">
+                        <h1 className="text-5xl text-sb float-left">
+                          My<br></br> Projects
+                        </h1>
+                      </div>
+                    </div>
                   </>
                 )}
-                Projects
               </motion.div>
               <motion.div
                 initial="hidden"
                 animate="show"
                 variants={listAnimation}
-                className="cell-4 bg-blue-500 cursor-default w-[52.50%]"
+                className="cell-4 rounded-[1.8rem] cursor-default w-[52.50%]"
               >
                 {listArray.map((item, index) => {
                   return (
@@ -173,7 +186,7 @@ const MainDisplay = ({
                         scale: 1.05,
                         transition: { duration: 0.1 },
                       }}
-                      className="list-item-div  flex relative justify-center items-center   border-b-[1px] border-jwhite  h-[20%]   "
+                      className="list-item-div  flex relative justify-center items-center border-b-[1px] border-jblack  h-[20%] cursor-default  text-3xl "
                     >
                       <div
                         key={index}
@@ -186,21 +199,49 @@ const MainDisplay = ({
                 })}
               </motion.div>
             </div>
-            <div className="cell-5 w-[40%]">
-              <div className="cell-5-inner-1  w-[100%] h-[40%] bg-red-900">
-                No.of Projects :{" "}
+            <motion.div variants={childVariants} className="cell-5 w-[40%]">
+              <div className="cell-5-inner-1  p-5 rounded-[1.8rem] flex items-center justify-center w-[100%] h-[40%] bg-red-200">
+                <h1 className="text-3xl text-center ">
+                  No. of Projects :{" "}
+                  <span className="font-semibold">{cards.length}</span>
+                </h1>
               </div>
               <div className="h-[60%] cell-5-inner-div">
-                <div className="cell-5-inner-2 h-[25%] w-[100%] bg-green-200">
-                  Resume
+                <div className="cell-5-inner-2 h-[30%] w-[100%] flex justify-end items-center">
+                  <a href={Resume} target="_blank">
+                    <button className="bg-[#f29f05] text-lg rounded-full py-1 px-10 ">
+                      Resume
+                    </button>
+                  </a>
                 </div>
-                <div className="cell-5-inner-3 h-[75%] w-[100%] bg-blue-200 ">
-                  Social Links
+                <div className="cell-5-inner-3  p-5 rounded-[1.8rem]  h-[70%] w-[100%] gap-y-5 flex flex-col justify-center items-center bg-blue-200 ">
+                  {/* <p className="text-xl">Social Links </p> */}
+                  <div className="flex items-center gap-[20%] w-[60%] justify-center ">
+                    {socialLinks.map((item, index) => {
+                      if (item.title === "Email") return;
+                      return (
+                        <>
+                          <a href={item.link} target="_blank">
+                            <motion.img
+                              initial={{ scale: 1 }}
+                              whileHover={{ opacity: 1, scale: 1.2 }}
+                              transition={{
+                                duration: 0.5,
+                                ease: easeOut,
+                              }}
+                              src={item.icon}
+                              className="w-10 h-10 cursor-pointer"
+                            ></motion.img>
+                          </a>
+                        </>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );

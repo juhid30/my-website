@@ -11,9 +11,16 @@
   margin:0;
   padding:0;
 } */
-
+:root {
+  --black: #1b1b1b;
+  --yellow: #f29e01;
+  --white: #d7d4cb;
+  --orange: #ff7747;
+  --offwhite: #f4f4f4;
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-align: justify;
 }

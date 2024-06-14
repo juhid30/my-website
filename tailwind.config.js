@@ -13,6 +13,7 @@ export default {
         jyellow: "var(--yellow)",
         jblack: "var(--black)",
         jorange: "var(--orange)",
+        joff: "var(--offwhite)",
       },
     },
   },

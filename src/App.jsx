@@ -7,6 +7,15 @@ const App = () => {
   const [isProjectOpen, setIsProjectOpen] = useState(false);
   const [isBlogOpen, setIsBlogOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const openDivWithDelay = (targetDiv, setTargetDiv) => {
+    setIsAboutOpen(false);
+    setIsBlogOpen(false);
+    setIsContactOpen(false);
+    setIsProjectOpen(false);
+    setTimeout(() => {
+      setTargetDiv(true);
+    }, 600);
+  };
   const toggleDiv = (targetDiv, setTargetDiv) => {
     setTargetDiv(!targetDiv);
   };
@@ -42,7 +51,7 @@ const App = () => {
   };
   return (
     <>
-      <div className="max-w-[100%] min-h-[100vh] bg-red-200 flex flex-col">
+      <div className="max-w-[100%] min-h-[100vh] bg-joff flex flex-col">
         {/* <section className="sticky top-0 left-0 w-full h-[8vh]"> */}
         <Navbar
           isAboutOpen={isAboutOpen}

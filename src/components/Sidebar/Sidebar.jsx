@@ -57,6 +57,15 @@ const Sidebar = ({
                   </>
                 );
               })}
+              <div
+                onClick={() => {
+                  setIsSideBarOpen(false);
+                  expandDiv("Contact");
+                }}
+                className="bg-orange-200 w-[80%] text-2xl h-10"
+              >
+                Contact Me
+              </div>
             </div>
             <div className="flex gap-5 items-center justify-center absolute bottom-10 bg-purple-200 ">
               {socialLinks.map((item) => {

@@ -1,5 +1,28 @@
+.roboto-mono-pageFont {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.montserrat-abc {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+* {
+  font-family: "Exo 2", sans-serif;
+  /* cursor: default; */
+}
+
 .body-container {
   position: relative; /* Ensure .body-container is the positioning context */
+}
+
+.activeBtn {
+  color: var(--yellow) !important;
+  border-color: var(--yellow) !important;
 }
 #sidebar-wrapper {
   display: none;
@@ -216,6 +239,10 @@
 
     background-color: red !important;
   }
+
+  /* 1050px
+  about me page */
+
   /* .row-1,
   .row-2 {
     display: flex;
@@ -233,4 +260,11 @@
   /* width: 100% !important; Make each cell take full width
     height: 100% !important; Adjust the height if necessary
   } */
+}
+.textOverflow {
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
