@@ -8,6 +8,8 @@ import {
 import Resume from "../../assets/Juhi Resume_May_2024.pdf";
 import pattern from "../../assets/7.png";
 import projectImg from "../../assets/complete.png";
+import moon from "../../assets/moon.png";
+import sun from "../../assets/sun.png";
 import {
   listArray,
   listAnimation,
@@ -15,6 +17,7 @@ import {
   parentVariants,
   socialLinks,
   cards,
+  listItemColourDark,
   // skillLists
 } from "../Data/Data";
 import { useEffect, useState } from "react";
@@ -26,17 +29,26 @@ import closeArrow from "../../assets/cross_new.png";
 import AboutMe from "../About Me/AboutMe";
 import Projects from "../Projects/Projects";
 const MainDisplay = ({
+  isPhone,
   isAboutOpen,
   isBlogOpen,
   isContactOpen,
   isProjectOpen,
   expandDiv,
+  isDarkModeOn,
+  toggleSwitch,
 }) => {
   const [showAvatar, setShowAvatar] = useState(true);
-  const [isPhone, setIsPhone] = useState(window.innerWidth <= 767);
+
   const controls = useAnimation();
 
   const [isPageLoadedFirstTime, setIsPageLoadedFirstTime] = useState(false);
+  const spring = {
+    type: "spring",
+    stiffness: 700,
+    damping: 30,
+  };
+
   useEffect(() => {
     setShowAvatar(false);
     setTimeout(() => {
@@ -48,16 +60,6 @@ const MainDisplay = ({
     }
   }, [isAboutOpen]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsPhone(window.innerWidth <= 767);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   useEffect(() => {
     setShowAvatar(false);
     setTimeout(() => {
@@ -75,14 +77,21 @@ const MainDisplay = ({
       setTargetDiv(true);
     }, 600);
   };
+
   return (
     <>
-      <div className="flex flex-grow items-center justify-center h-[100%]">
+      <div
+        className={`${
+          isDarkModeOn ? "bg-jblack" : ""
+        } flex flex-grow items-center justify-center h-[100%]`}
+      >
         <motion.div
           initial="hidden"
           animate={controls}
           variants={parentVariants}
-          className="body-container w-[96%] h-[38rem] rounded-[1.8rem]  gap-2 p-2 flex flex-col justify-center"
+          className={`${
+            isDarkModeOn ? "bg-jblack" : ""
+          } body-container w-[96%] h-[38rem] rounded-[1.8rem]  gap-2 p-2 flex flex-col justify-center`}
         >
           <motion.div className="row-1 gap-3 flex h-[52%]">
             {isContactOpen && !isPhone && (
@@ -90,21 +99,29 @@ const MainDisplay = ({
                 isContactOpen={isContactOpen}
                 isPhone={isPhone}
                 expandDiv={expandDiv}
+                isDarkModeOn={isDarkModeOn}
               />
             )}
             {isBlogOpen && !isPhone && (
-              <Blogs isPhone={isPhone} expandDiv={expandDiv} />
+              <Blogs
+                isPhone={isPhone}
+                expandDiv={expandDiv}
+                isDarkModeOn={isDarkModeOn}
+              />
             )}
             <motion.div
               variants={childVariants}
-              className="cell-1 w-[70%] rounded-[1.8rem] bg-pink-400 p-7 relative overflow-hidden text-left text-[340%] "
+              className={`${
+                isDarkModeOn ? "bg-jwhite" : " bg-pink-400"
+              } cell-1 w-[70%] rounded-[1.8rem]   p-6 relative overflow-hidden text-left text-[340%] `}
             >
-              {" "}
+              {/* [#f7f4e3] */}{" "}
               <div className="text-left intro-text ml-8">
                 {isPhone ? (
                   <>
-                    <h1 id="name">Juhi Deore</h1>
-                    <h2 id="profession">Software Developer</h2>
+                    <h1 id="name">Juhi Deore</h1>{" "}
+                    {/* <div className="flex items-center"> */}
+                    <h2 id="profession">Software Developer</h2> {/* </div> */}
                   </>
                 ) : (
                   <>
@@ -112,7 +129,29 @@ const MainDisplay = ({
                       {" "}
                       Transforming Ideas into Experiences.
                     </h1>
-                    <h2 className="text-[1.7rem] mt-7">That's me!</h2>
+                    <div className="flex  mt-7  items-center">
+                      <h2 className="text-[1.7rem] ">That's me! </h2>
+                      <motion.div
+                        className={`${
+                          isDarkModeOn ? "bg-[#98958166]" : "bg-[#e7d5d566]"
+                        }  switch flex w-[8%] ml-5 h-[90%] `}
+                        data-isDarkModeOn={isDarkModeOn}
+                        onClick={toggleSwitch}
+                      >
+                        <motion.div
+                          layout
+                          transition={spring}
+                          className={`handle ${
+                            isDarkModeOn ? "bg-[#00000066]" : "bg-white"
+                          } `}
+                        >
+                          <motion.img
+                            src={isDarkModeOn ? moon : sun}
+                            className=""
+                          ></motion.img>
+                        </motion.div>
+                      </motion.div>
+                    </div>{" "}
                   </>
                 )}{" "}
               </div>
@@ -129,8 +168,24 @@ const MainDisplay = ({
               layout
               data-isOpen={isAboutOpen}
               onClick={() => expandDiv("About")}
-              className={`${isAboutOpen ? "expanded about-div" : "w-[40%]"}
-               cell-2 flex bg-green-200  rounded-[1.8rem] overflow-hidden cursor-default`}
+              className={`${
+                isAboutOpen
+                  ? `expanded about-div  ${
+                      isDarkModeOn
+                        ? isPhone
+                          ? "bg-[#70213d]"
+                          : " bg-pink-800"
+                        : ""
+                    } `
+                  : "w-[40%]"
+              } ${
+                isDarkModeOn
+                  ? isPhone
+                    ? "bg-[#ae405b]"
+                    : "bg-[#e6456d]"
+                  : "bg-green-200  "
+              } 
+               cell-2 flex rounded-[1.8rem] overflow-hidden cursor-default`}
             >
               <motion.div
                 // initial={{ opacity: 0, scale: 0 }}
@@ -167,7 +222,7 @@ const MainDisplay = ({
               </motion.div>
               {isAboutOpen && (
                 // e6d6b3
-                <AboutMe />
+                <AboutMe isPhone={isPhone} isDarkModeOn={isDarkModeOn} />
               )}{" "}
             </motion.div>
           </motion.div>
@@ -189,12 +244,18 @@ const MainDisplay = ({
                 }  project-div rounded-[1.8rem] `}
               >
                 {isProjectOpen && (
-                  <Projects expandDiv={expandDiv} isPhone={isPhone} />
+                  <Projects
+                    expandDiv={expandDiv}
+                    isPhone={isPhone}
+                    isDarkModeOn={isDarkModeOn}
+                  />
                 )}
                 {!isProjectOpen && (
                   <>
                     <div
-                      className="project-closed-banner w-[100%] h-[100%] bg-blue-200 p-5   flex flex-col items-center cursor-pointer rounded-[1.8rem] "
+                      className={` ${
+                        isDarkModeOn ? "bg-[#ff8a62]" : "bg-blue-200"
+                      } project-closed-banner w-[100%] h-[100%]  p-5   flex flex-col items-center cursor-pointer rounded-[1.8rem] `}
                       onClick={() => expandDiv("Projects")}
                     >
                       <div className="project-closed-img-div  w-[100%] h-[50%]">
@@ -234,12 +295,20 @@ const MainDisplay = ({
                         scale: 1.05,
                         transition: { duration: 0.1 },
                       }}
-                      className="list-item-div flex relative justify-center items-center border-b-[1px] border-jblack  h-[20%] cursor-default  text-3xl "
+                      className={`list-item-div flex relative justify-center items-center border-b-[1px] ${
+                        isDarkModeOn
+                          ? "border-joff text-[#f7f4e3] "
+                          : "border-jblack "
+                      }  h-[20%] cursor-default  text-3xl `}
                     >
                       <div
                         key={index}
                         className={`absolute left-0 w-7 h-7 rounded-[50%]`}
-                        style={{ backgroundColor: item.color }}
+                        style={{
+                          backgroundColor: isDarkModeOn
+                            ? listItemColourDark[index].color
+                            : item.color,
+                        }}
                       ></div>
                       <p className="hover:scale-200 ">{item.title}</p>
                     </motion.div>
@@ -248,7 +317,15 @@ const MainDisplay = ({
               </motion.div>
             </div>
             <motion.div variants={childVariants} className="cell-5  w-[40%]">
-              <div className="cell-5-inner-1  p-5 rounded-[1.8rem] flex items-center justify-center w-[100%] h-[40%] bg-red-200">
+              <div
+                className={` ${
+                  isDarkModeOn
+                    ? isPhone
+                      ? "bg-[#b8b3e8]"
+                      : "bg-[#f4b4af]"
+                    : " bg-red-200"
+                } cell-5-inner-1  p-5 rounded-[1.8rem] flex items-center justify-center w-[100%] h-[40%]`}
+              >
                 <h1 className="text-3xl text-center ">
                   Software Developer
                   {/* No. of Projects :{" "}
@@ -257,8 +334,16 @@ const MainDisplay = ({
               </div>
               <div className="h-[60%] cell-5-inner-div">
                 <div className="cell-5-inner-2 relative h-[30%] w-[100%] flex justify-end items-center">
-                  <a href={Resume} target="_blank" className="resume-a-tag">
-                    <button className="resume bg-[#f29f05] text-lg rounded-full py-1 px-5 ">
+                  <a
+                    href={Resume}
+                    target="_blank"
+                    className="resume-a-tag flex"
+                  >
+                    <button
+                      className={`${
+                        isDarkModeOn ? "bg-[#ecd1a0]" : "bg-[#f29f05]"
+                      } resume  text-lg rounded-full py-1 px-5 `}
+                    >
                       <h1 className="text-center">
                         {" "}
                         {isPhone ? "Download resume" : "Download Resume"}
@@ -279,7 +364,9 @@ const MainDisplay = ({
                         isBlogOpen
                           ? "expanded"
                           : "flex items-center    justify-center "
-                      }  mt-[30%] blog-div-phone  w-[100%] h-[100%]  rounded-[1.8rem] bg-purple-200 z-[100] flex flex-col items-center  `}
+                      }  ${
+                        isDarkModeOn ? "bg-[#a6ca9e] " : "bg-purple-200"
+                      } mt-[30%] blog-div-phone  w-[100%] h-[100%]  rounded-[1.8rem]  flex flex-col items-center  `}
                     >
                       {" "}
                       {!isBlogOpen && (
@@ -296,7 +383,11 @@ const MainDisplay = ({
                       )}
                       {isBlogOpen && (
                         <>
-                          <Blogs isPhone={isPhone} expandDiv={expandDiv} />
+                          <Blogs
+                            isPhone={isPhone}
+                            expandDiv={expandDiv}
+                            isDarkModeOn={isDarkModeOn}
+                          />
                         </>
                       )}
                     </motion.div>
@@ -314,8 +405,10 @@ const MainDisplay = ({
                       className={`${
                         isContactOpen
                           ? "expanded"
-                          : "flex items-center  bg-green-200 mt-[0%] justify-center"
-                      }   cont-div-phone  w-[100%] h-[100%] py-1 z-[100] flex flex-col items-center  `}
+                          : isDarkModeOn
+                          ? "flex items-center    bg-[#769f96] mt-[0%] justify-center"
+                          : "flex items-center py-1  mt-[0%] justify-center"
+                      }   cont-div-phone  w-[100%] h-[100%]  flex flex-col   bg-green-200 items-center  `}
                     >
                       {!isContactOpen && (
                         <>
@@ -333,6 +426,7 @@ const MainDisplay = ({
                       {isContactOpen && (
                         <>
                           <ContactMe
+                            isDarkModeOn={isDarkModeOn}
                             isContactOpen={isContactOpen}
                             isPhone={isPhone}
                             expandDiv={expandDiv}
@@ -344,14 +438,20 @@ const MainDisplay = ({
                 )}
                 <div
                   className={`${
-                    isPhone ? "" : "bg-blue-200"
+                    isDarkModeOn
+                      ? isPhone
+                        ? "bg-[#f4f2f2ae]"
+                        : "bg-[#6acdaf]"
+                      : isPhone
+                      ? ""
+                      : "bg-blue-200"
                   }  cell-5-inner-3  p-5 rounded-[1.8rem]  h-[70%] w-[100%] gap-y-5 flex flex-col justify-center items-center  `}
                 >
                   {/* <p className="text-xl">Social Links </p> */}
                   <div
                     className={`${
                       isPhone ? "w-[85%] gap-7" : "w-[60%]  gap-[20%]"
-                    } flex items-center justify-center relative `}
+                    } flex items-center justify-center  `}
                   >
                     {socialLinks.map((item, index) => {
                       if (!isPhone && item.title === "Email") return null;

@@ -3,7 +3,13 @@ import React, { useState } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import "./projects.css";
 import { cards } from "../Data/Data";
-function CarouselItem({ index, isPhone, isFlipped, setIsFlipped }) {
+function CarouselItem({
+  index,
+  isPhone,
+  isFlipped,
+  setIsFlipped,
+  isDarkModeOn,
+}) {
   const [isAnimating, setisAnimating] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -49,9 +55,9 @@ function CarouselItem({ index, isPhone, isFlipped, setIsFlipped }) {
               // whileHover={{ opacity: 1, y: 0 }}
               animate={{ opacity: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
-              className={` ${
-                isPhone ? "" : ""
-              } absolute bottom-0  rounded-[1.8rem] bg-blue-200/50 left-0 w-full h-full `}
+              className={` ${isPhone ? "" : ""} ${
+                isDarkModeOn ? " bg-[#e6d2c7]/20" : "bg-blue-200/20"
+              } absolute bottom-0  rounded-[1.8rem]  left-0 w-full h-full `}
             >
               <motion.div
                 className={` ${
@@ -81,17 +87,23 @@ function CarouselItem({ index, isPhone, isFlipped, setIsFlipped }) {
             {/* <img src={cards[index].url} className="w-full h-[90%] "></img> */}
           </div>
 
-          <div className="flip-card-back relative w-[100%] flex  justify-center items-center  bg-[#e6c7d2]/90  rounded-[1.8rem] h-[100%] ">
+          <div
+            className={`${
+              isDarkModeOn ? " bg-[#c5b894e9] " : " bg-[#73418d]"
+            } flip-card-back relative w-[100%] flex ${
+              isPhone ? " text-jwhite" : ""
+            }   justify-center items-center rounded-[1.8rem] h-[100%] `}
+          >
             <div
               className={` ${
-                isPhone ? " gap-2 p-2" : "w-[40%]"
-              } flex flex-col items-center justify-center   h-[100%]`}
+                isPhone ? " gap-2 p-4 flex flex-col" : "w-[90%] flex"
+              }   items-center justify-center h-[100%]`}
             >
               <div
                 className={` ${
                   isPhone
                     ? "onject-contain relative w-[50%] h-[50%]"
-                    : "w-[50%] h-[40%] float-left overflow-hidden  "
+                    : "w-[50%] h-[40%] float-left   "
                 } flex items-center `}
               >
                 <img
@@ -105,13 +117,16 @@ function CarouselItem({ index, isPhone, isFlipped, setIsFlipped }) {
               </div>
               <div
                 className={` ${
-                  isPhone ? "gap-1 text-left text-[0.9rem] " : ""
-                } w-[100%] h-[50%]  flex flex-col gap-3 items-center  text-center justify-center`}
+                  isPhone ? "gap-1 text-left text-[0.9rem] h-[50%]" : "h-[90%]"
+                } w-[100%]  flex flex-col gap-3 items-center  text-center justify-center`}
               >
-                <h1> Tools used:</h1>
+                <h1 className={`${isPhone ? "" : "text-4xl mb-5"}`}>
+                  {" "}
+                  Tools used:
+                </h1>
                 <div
                   className={` ${
-                    isPhone ? "" : "text-center"
+                    isPhone ? "" : "text-center text-xl"
                   } grid grid-cols-2 align-middle `}
                 >
                   {cards[index].tools.map((tool) => {

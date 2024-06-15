@@ -6,7 +6,7 @@ import rightArrowDouble from "../../assets/right arrow double.png";
 import back from "../../assets/arrow-left.png";
 import closeArrow from "../../assets/cross_new.png";
 import "../../App.css";
-const Blogs = ({ isPhone, expandDiv }) => {
+const Blogs = ({ isPhone, expandDiv, isDarkModeOn }) => {
   const [openBlog, setOpenBlog] = useState({});
 
   const [blogSelected, setBlogSelected] = useState(false);
@@ -35,7 +35,16 @@ const Blogs = ({ isPhone, expandDiv }) => {
           isPhone
             ? "expanded-blog-phone relative rounded-[1rem]"
             : "rounded-[1.8rem]"
-        } w-[100%] h-[100%] z-[120] bg-blue-200   absolute top-0 left-0 cursor-default   `}
+        } w-[100%] h-[100%] z-[120] 
+         ${
+           isDarkModeOn
+             ? isPhone
+               ? ""
+               : "bg-[#ac6262]"
+             : isPhone
+             ? ""
+             : " bg-blue-200 "
+         }  absolute top-0 left-0 cursor-default   `}
       >
         <motion.div
           initial="hidden"
@@ -51,9 +60,15 @@ const Blogs = ({ isPhone, expandDiv }) => {
             {...(!isPhone && { variants: { fadeInAnim } })}
             {...(isPhone && { variants: { childVariants } })}
             layout
-            className={` ${
-              isPhone ? "p-3 gap-3 w-[100%]" : "p-5  gap-5  w-[65%] "
-            }  blog-list   border-2 border-black bg-joff scroll-smooth overflow-auto scrollbar-hide flex items-center justify-center flex-wrap `}
+            className={`${
+              isPhone ? "p-3 gap-3 w-[100%]" : "p-5 gap-5 w-[65%] "
+            } ${
+              isDarkModeOn
+                ? isPhone
+                  ? "bg-[#dad9c8]"
+                  : "bg-[#e8c7c7] "
+                : "bg-joff  border-2 border-black "
+            } blog-list scroll-smooth overflow-auto scrollbar-hide flex items-center justify-center flex-wrap`}
           >
             {" "}
             {blogSelected && (
@@ -107,19 +122,25 @@ const Blogs = ({ isPhone, expandDiv }) => {
                     <p className="w-[94%]  ">{openBlog.description}</p>
                   </div>{" "}
                   <div
-                    onClick={() => {
-                      closeBlogDescription();
-                    }}
                     className={` ${
                       isPhone
                         ? "float-right  w-[100%]"
                         : "absolute bottom-5 right-4 "
-                    }  bg-joff`}
+                    } ${isDarkModeOn ? "" : " bg-joff"}`}
                   >
                     <button
+                      onClick={() => {
+                        closeBlogDescription();
+                      }}
                       className={` ${
-                        isPhone ? "float-right bg-blue-100" : ""
-                      } px-5`}
+                        isPhone
+                          ? `float-right ${
+                              isDarkModeOn ? "bg-[#c9cdb4]" : "bg-blue-100"
+                            } `
+                          : ""
+                      } ${
+                        !isPhone && isDarkModeOn ? "bg-[#e8c7c7] " : ""
+                      } px-5 `}
                     >
                       Back
                     </button>
@@ -145,7 +166,13 @@ const Blogs = ({ isPhone, expandDiv }) => {
                         }}
                         className={`${
                           isPhone ? "w-[95%] h-[46%]" : "w-[30%] h-[45%]"
-                        } border-2 cursor-pointer rounded-[0.4rem] bg-pink-100 flex items-center justify-center text-3xl  `}
+                        } ${
+                          isDarkModeOn
+                            ? isPhone
+                              ? "bg-[#97a27e]"
+                              : "bg-[#98727d]"
+                            : "bg-pink-100 border-2"
+                        }  cursor-pointer rounded-[0.4rem]  flex items-center justify-center text-3xl  `}
                       >
                         <h1 className="w-[100%]  text-center leading-relaxed">
                           {blog.title.split(" ").map((word, index) => (

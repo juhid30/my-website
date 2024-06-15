@@ -6,7 +6,7 @@ import CarouselItem from "./CarouselItem";
 import { cards } from "../Data/Data";
 import closeArrow from "../../assets/cross_new.png";
 
-const Projects = ({ expandDiv, isPhone }) => {
+const Projects = ({ expandDiv, isPhone, isDarkModeOn }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(Array(cards.length).fill(false));
 
@@ -115,7 +115,15 @@ const Projects = ({ expandDiv, isPhone }) => {
     },
   };
   return (
-    <div className=" w-[100%] h-[100%] p-5 rounded-[1.8rem] bg-purple-200 z-[100] flex flex-col items-center  ">
+    <div
+      className={`${
+        isDarkModeOn
+          ? isPhone
+            ? "bg-[#be8c63]"
+            : " bg-[#e9a46c]"
+          : " bg-purple-200"
+      }  w-[100%] h-[100%] p-5 rounded-[1.8rem] z-[100] flex flex-col items-center  `}
+    >
       <div className="float-right absolute top-4 right-3">
         <img
           src={closeArrow}
@@ -163,6 +171,7 @@ const Projects = ({ expandDiv, isPhone }) => {
               className="carousel-item "
             >
               <CarouselItem
+                isDarkModeOn={isDarkModeOn}
                 isPhone={isPhone}
                 index={prevIndex}
                 isFlipped={isFlipped}
@@ -177,6 +186,7 @@ const Projects = ({ expandDiv, isPhone }) => {
               className="carousel-item"
             >
               <CarouselItem
+                isDarkModeOn={isDarkModeOn}
                 isPhone={isPhone}
                 index={currentIndex}
                 isFlipped={isFlipped}
@@ -192,6 +202,7 @@ const Projects = ({ expandDiv, isPhone }) => {
               className="carousel-item"
             >
               <CarouselItem
+                isDarkModeOn={isDarkModeOn}
                 isPhone={isPhone}
                 index={nextIndex}
                 isFlipped={isFlipped}
@@ -210,7 +221,13 @@ const Projects = ({ expandDiv, isPhone }) => {
             }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.8 }}
-            className="bwd-btn"
+            className={`bwd-btn flex items-center justify-center ${
+              isDarkModeOn
+                ? isPhone
+                  ? "bg-[#4a2808]"
+                  : " bg-[#4f2710]"
+                : "bg-[#492c77]"
+            }`}
             onClick={prevBtn}
           >
             <i class="fi fi-rr-angle-double-left"></i>
@@ -224,7 +241,13 @@ const Projects = ({ expandDiv, isPhone }) => {
             }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.8 }}
-            className="fwd-btn"
+            className={`fwd-btn flex items-center justify-center ${
+              isDarkModeOn
+                ? isPhone
+                  ? "bg-[#4a2808]"
+                  : "bg-[#4f2710]"
+                : "bg-[#492c77]"
+            }`}
             onClick={nextBtn}
           >
             <i class="fi fi-rr-angle-double-right"></i>

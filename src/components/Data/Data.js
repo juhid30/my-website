@@ -22,6 +22,7 @@ import forge from "../../assets/Forge.png";
 import terna from "../../assets/terna1.jpeg";
 import Xav1 from "../../assets/Xavier's1.jpeg";
 import Vol1 from "../../assets/Volantus1.jpeg";
+import { color } from "framer-motion";
 const navLabels = [
   {
     id: "1",
@@ -93,6 +94,34 @@ const listArray = [
     id: "5",
     title: "AI/ML",
     color: "#ee06f2",
+  },
+];
+
+const listItemColourDark = [
+  {
+    id: "1",
+    color: "#84c3b1",
+    // color: "#84c3b1",
+  },
+  {
+    id: "2",
+    color: "#ADD26A",
+    // color: "#ADD26A",
+  },
+  {
+    id: "3",
+    color: "#fae4b1",
+    // color: "#fae4b1",
+  },
+  {
+    id: "4",
+    color: "#db7691",
+    // color: "#db7691",
+  },
+  {
+    id: "5",
+    color: "#BBBBF9",
+    // color: "#ce8c80",
   },
 ];
 const listAnimation = {
@@ -338,6 +367,7 @@ export {
   navLabels,
   socialLinks,
   listArray,
+  listItemColourDark,
   listAnimation,
   fadeInAnim,
   parentVariants,

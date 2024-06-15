@@ -1,15 +1,25 @@
 import { skillList, socialLinks } from "../Data/Data";
 import { easeOut, motion } from "framer-motion";
-const AboutMe = () => {
+const AboutMe = ({ isDarkModeOn, isPhone }) => {
   return (
     <>
       {" "}
-      <div className="about-me-desc w-[60%] text-left bg-[#ddd8ce] p-5 relative  ">
+      <div
+        className={`${isDarkModeOn ? "bg-[#d1c7b5]" : " bg-[#ddd8ce]"} ${
+          isPhone ? "text-center" : "text-left"
+        }  about-me-desc w-[60%]  p-5 relative flex flex-col justify-center  `}
+      >
         {/* <div className="float-right bg-red-200 m">
           <img src={closeArrow}></img>
         </div> */}
         <section className="about-me mb-4">
-          <h2 className="text-4xl font-medium mb-3">About Me</h2>
+          <h2
+            className={` ${
+              isPhone ? "text-center" : ""
+            } text-4xl font-medium mb-3`}
+          >
+            About Me
+          </h2>
           <p>
             I'm Juhi Deore, driven by a passion for continuous learning and
             inspired by collaborative teamwork. I enjoy creating inclusive
@@ -19,13 +29,27 @@ const AboutMe = () => {
             technical and managerial roles to contribute meaningfully.
           </p>
         </section>
-        <section className="skills mb-4">
-          <h2 className="text-4xl font-medium mb-5">Skills</h2>
-          <div className="w-[80%] grid grid-cols-4 gap-4">
+        <section
+          className={` ${
+            isPhone ? "flex flex-col justify-center items-center" : ""
+          } skills mb-4 `}
+        >
+          <h2
+            className={` ${
+              isPhone ? "text-center" : ""
+            } text-4xl font-medium mb-5`}
+          >
+            Skills
+          </h2>
+          <div
+            className={`${
+              isPhone ? "w-[100%]" : "w-[80%]"
+            }  grid grid-cols-4 gap-4`}
+          >
             {skillList.map((skill) => (
               <motion.div
                 key={skill.id}
-                className="skill-item flex flex-col items-center"
+                className="skill-item flex flex-col items-center "
               >
                 <motion.img
                   initial={{ scale: 1 }}
@@ -45,7 +69,13 @@ const AboutMe = () => {
         </section>
 
         <section className="experience mb-4  ">
-          <h2 className="text-4xl font-medium  mb-2">Experience</h2>
+          <h2
+            className={` ${
+              isPhone ? "text-center" : ""
+            }  text-4xl font-medium  mb-2`}
+          >
+            Experience
+          </h2>
           <div className="">
             <div>
               <ul className="list-disc ml-5">
@@ -64,14 +94,18 @@ const AboutMe = () => {
           </div>
         </section>
 
-        <section className="contact-info mt-5">
+        <section
+          className={`${
+            isPhone ? "flex justify-center" : ""
+          }  contact-info mt-5`}
+        >
           <div className="flex space-x-10">
             {socialLinks.map((link) => (
               <a
                 href={link.link}
                 key={link.id}
                 target="_blank"
-                rel="noopener noreferrer"
+                // rel="noopener noreferrer"
               >
                 <img src={link.icon} alt={link.title} className="w-8 h-8" />
               </a>

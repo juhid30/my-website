@@ -8,7 +8,7 @@ import {
 import { useState } from "react";
 import closeArrow from "../../assets/cross_new.png";
 
-const ContactMe = ({ isContactOpen, isPhone, expandDiv }) => {
+const ContactMe = ({ isContactOpen, isPhone, expandDiv, isDarkModeOn }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -73,7 +73,9 @@ const ContactMe = ({ isContactOpen, isPhone, expandDiv }) => {
               layout
               className={` ${
                 isPhone ? "relative " : "w-[100%] h-[100%] rounded-[1.8rem]"
-              } contact-div-open  z-[120] absolute top-0 left-0  bg-yellow-200  `}
+              } contact-div-open  z-[120] absolute top-0 left-0 ${
+                isDarkModeOn ? "bg-[#769f96] " : isPhone ? "" : "bg-yellow-200"
+              }   `}
             >
               <motion.div
                 initial="hidden"
@@ -269,9 +271,9 @@ const ContactMe = ({ isContactOpen, isPhone, expandDiv }) => {
                           {...(!isPhone && { variants: { fadeInAnim } })}
                           {...(isPhone && { variants: { childVariants } })}
                           type="submit"
-                          className={` ${
-                            isPhone ? "" : ""
-                          } bg-white p-1 text-jblack  px-2 rounded self-end`}
+                          className={` ${isPhone ? "" : ""} ${
+                            isDarkModeOn ? "bg-[#afacac] " : "bg-white"
+                          }  p-1 text-jblack  px-2 rounded self-end`}
                         >
                           Submit
                         </motion.button>
