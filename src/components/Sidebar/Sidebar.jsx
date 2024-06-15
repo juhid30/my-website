@@ -11,6 +11,7 @@ const Sidebar = ({
   isContactOpen,
   isProjectOpen,
   expandDiv,
+  activeBtn,
 }) => {
   // const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const closeSideBar = () => {
@@ -21,11 +22,11 @@ const Sidebar = ({
     <>
       <div
         id="sidebar-wrapper"
-        className={` bg-red-900 z-[120] fixed top-0 right-0 h-[100vh] w-[27%]  p-5 ${
+        className={` rounded-l-[1.8rem] bg-[#f0f0d5] z-[120] fixed top-0 right-0 h-[100vh] w-[27%]  p-5 ${
           isSideBarOpen ? "open" : ""
         }`}
       >
-        <div className="content flex flex-col items-center h-[100%] bg-blue-400">
+        <div className="content flex flex-col items-center h-[100%]  ">
           <div className=" w-[100%] h-[5rem] ">
             <img
               src={closeArrow}
@@ -33,14 +34,14 @@ const Sidebar = ({
               onClick={closeSideBar}
             />
           </div>
-          <div className="flex flex-col items-center bg-purple-900 w-[100%]">
+          <div className="flex flex-col items-center w-[100%]">
             <div className="w-[12rem] h-[12rem] bg-yellow-200 rounded-full overflow-hidden">
               <img
                 src={profilePhoto}
                 className="max-w-[100%] h-auto object-contain rounded"
               ></img>
             </div>
-            <div className="mt-10 h-[30%] w-full gap-5 flex flex-col items-center bg-pink-200">
+            <div className="mt-10 h-[30%] w-full gap-5 flex flex-col items-center ">
               {navLabels.map((item) => {
                 return (
                   <>
@@ -50,7 +51,9 @@ const Sidebar = ({
                         setIsSideBarOpen(false);
                         expandDiv(item.name);
                       }}
-                      className="bg-orange-200 w-[80%] text-2xl h-10"
+                      className={` ${
+                        activeBtn === item.name ? "bg-red-200" : ""
+                      } w-[80%] text-2xl h-10`}
                     >
                       {item.name}
                     </div>
@@ -62,7 +65,7 @@ const Sidebar = ({
                   setIsSideBarOpen(false);
                   expandDiv("Contact");
                 }}
-                className="bg-orange-200 w-[80%] text-2xl h-10"
+                className=" w-[80%] text-2xl h-10"
               >
                 Contact Me
               </div>

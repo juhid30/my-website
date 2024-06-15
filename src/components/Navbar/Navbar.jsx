@@ -59,7 +59,7 @@ const Navbar = ({
               })}
             </div>
             <div
-              className="bg-gray-200 border-2 border-grayy-200 px-3 py-1 rounded-[1.3rem] cursor-pointer "
+              className="bg-gray-200 border-4 border-grayy-200 px-3 py-1 rounded-[1.3rem] cursor-pointer "
               onClick={() => handleButtonClick("Contact")}
             >
               Contact Me
@@ -75,6 +75,7 @@ const Navbar = ({
         isContactOpen={isContactOpen}
         isProjectOpen={isProjectOpen}
         expandDiv={expandDiv}
+        activeBtn={activeBtn}
       />
     </>
   );

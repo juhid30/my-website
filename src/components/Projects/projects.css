@@ -31,7 +31,9 @@
   button {
     padding: 8px 15px;
     width: 5rem;
-    background-color: rgb(176, 131, 131);
+    display: flex;
+    justify-content: center;
+    background-color: rgb(124, 61, 158);
     border-radius: 3rem;
     color: var(--white);
     font-weight: 700;

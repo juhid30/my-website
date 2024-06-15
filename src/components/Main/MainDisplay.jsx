@@ -33,6 +33,7 @@ const MainDisplay = ({
   expandDiv,
 }) => {
   const [showAvatar, setShowAvatar] = useState(true);
+  const [isPhone, setIsPhone] = useState(window.innerWidth <= 767);
   const controls = useAnimation();
 
   const [isPageLoadedFirstTime, setIsPageLoadedFirstTime] = useState(false);
@@ -47,6 +48,16 @@ const MainDisplay = ({
     }
   }, [isAboutOpen]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setIsPhone(window.innerWidth <= 767);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   useEffect(() => {
     setShowAvatar(false);
     setTimeout(() => {
@@ -74,21 +85,42 @@ const MainDisplay = ({
           className="body-container w-[96%] h-[38rem] rounded-[1.8rem]  gap-2 p-2 flex flex-col justify-center"
         >
           <motion.div className="row-1 gap-3 flex h-[52%]">
-            {isContactOpen && (
-              <ContactMe isContactOpen={isContactOpen} expandDiv={expandDiv} />
+            {isContactOpen && !isPhone && (
+              <ContactMe
+                isContactOpen={isContactOpen}
+                isPhone={isPhone}
+                expandDiv={expandDiv}
+              />
             )}
-            {isBlogOpen && <Blogs expandDiv={expandDiv} />}
+            {isBlogOpen && !isPhone && (
+              <Blogs isPhone={isPhone} expandDiv={expandDiv} />
+            )}
             <motion.div
               variants={childVariants}
               className="cell-1 w-[70%] rounded-[1.8rem] bg-pink-400 p-7 relative overflow-hidden text-left text-[340%] "
             >
               {" "}
-              Transforming Ideas into Experiences.
+              <div className="text-left intro-text ml-8">
+                {isPhone ? (
+                  <>
+                    <h1 id="name">Juhi Deore</h1>
+                    <h2 id="profession">Software Developer</h2>
+                  </>
+                ) : (
+                  <>
+                    <h1 className="text-[3.6rem] leading-tight text-left">
+                      {" "}
+                      Transforming Ideas into Experiences.
+                    </h1>
+                    <h2 className="text-[1.7rem] mt-7">That's me!</h2>
+                  </>
+                )}{" "}
+              </div>
               <div className=" float-right absolute -right-[7%] -top-[20%] ">
                 <img
                   src={pattern}
                   alt="pattern"
-                  className="  w-[16rem] h-[16rem] rotate-[80deg] opacity-40"
+                  className=" transparent-bg-img w-[16rem] h-[16rem] rotate-[80deg] opacity-40"
                 ></img>
               </div>
             </motion.div>
@@ -97,7 +129,7 @@ const MainDisplay = ({
               layout
               data-isOpen={isAboutOpen}
               onClick={() => expandDiv("About")}
-              className={`${isAboutOpen ? "expanded" : "w-[40%]"}
+              className={`${isAboutOpen ? "expanded about-div" : "w-[40%]"}
                cell-2 flex bg-green-200  rounded-[1.8rem] overflow-hidden cursor-default`}
             >
               <motion.div
@@ -112,18 +144,24 @@ const MainDisplay = ({
                 className={` ${
                   !isAboutOpen
                     ? "about-div-closed  w-[100%] h-[100%]"
-                    : "w-[40%] h-[100%]"
+                    : "w-[40%] h-[100%] avatar-div"
                 } cursor-pointer `}
               >
                 {showAvatar && (
                   <Canvas
-                    className={`w-full h-full
+                    className={` ${
+                      isPhone
+                        ? isAboutOpen
+                          ? "w-[98%] h-[100%]  "
+                          : "avatar-canvas"
+                        : "w-full h-full"
+                    } 
                 `}
                     shadows
                     camera={{ position: [0, 0, 1.5], fov: 30 }}
                   >
                     {/* <color attach="background" args={["#ececec"]} /> */}
-                    <Experience isAboutOpen={isAboutOpen} />
+                    <Experience isAboutOpen={isAboutOpen} isPhone={isPhone} />
                   </Canvas>
                 )}
               </motion.div>
@@ -150,22 +188,32 @@ const MainDisplay = ({
                   isProjectOpen ? "expanded" : " w-[47.50%]"
                 }  project-div rounded-[1.8rem] `}
               >
-                {isProjectOpen && <Projects expandDiv={expandDiv} />}
+                {isProjectOpen && (
+                  <Projects expandDiv={expandDiv} isPhone={isPhone} />
+                )}
                 {!isProjectOpen && (
                   <>
                     <div
-                      className=" w-[100%] h-[100%] bg-blue-200 p-5 relative flex flex-col items-center cursor-pointer rounded-[1.8rem] "
+                      className="project-closed-banner w-[100%] h-[100%] bg-blue-200 p-5   flex flex-col items-center cursor-pointer rounded-[1.8rem] "
                       onClick={() => expandDiv("Projects")}
                     >
-                      <div className="w-[100%] h-[50%]">
+                      <div className="project-closed-img-div  w-[100%] h-[50%]">
                         <img
                           src={projectImg}
-                          className="float-right p-2 w-[40%] h-[100%] opacity-60"
+                          className="project-closed-img float-right p-2 w-[40%] h-[100%] opacity-60"
                         ></img>
                       </div>
-                      <div className="w-[80%]">
-                        <h1 className="text-5xl text-sb float-left">
-                          My<br></br> Projects
+                      <div className="w-[80%] ">
+                        <h1 className="text-5xl project-closed-title text-sb float-left">
+                          {isPhone ? (
+                            "My Projects"
+                          ) : (
+                            <>
+                              My
+                              <br />
+                              Projects
+                            </>
+                          )}
                         </h1>
                       </div>
                     </div>
@@ -186,7 +234,7 @@ const MainDisplay = ({
                         scale: 1.05,
                         transition: { duration: 0.1 },
                       }}
-                      className="list-item-div  flex relative justify-center items-center border-b-[1px] border-jblack  h-[20%] cursor-default  text-3xl "
+                      className="list-item-div flex relative justify-center items-center border-b-[1px] border-jblack  h-[20%] cursor-default  text-3xl "
                     >
                       <div
                         key={index}
@@ -199,26 +247,114 @@ const MainDisplay = ({
                 })}
               </motion.div>
             </div>
-            <motion.div variants={childVariants} className="cell-5 w-[40%]">
+            <motion.div variants={childVariants} className="cell-5  w-[40%]">
               <div className="cell-5-inner-1  p-5 rounded-[1.8rem] flex items-center justify-center w-[100%] h-[40%] bg-red-200">
                 <h1 className="text-3xl text-center ">
-                  No. of Projects :{" "}
-                  <span className="font-semibold">{cards.length}</span>
+                  Software Developer
+                  {/* No. of Projects :{" "}
+                  <span className="font-semibold">{cards.length}</span> */}
                 </h1>
               </div>
               <div className="h-[60%] cell-5-inner-div">
-                <div className="cell-5-inner-2 h-[30%] w-[100%] flex justify-end items-center">
-                  <a href={Resume} target="_blank">
-                    <button className="bg-[#f29f05] text-lg rounded-full py-1 px-10 ">
-                      Resume
+                <div className="cell-5-inner-2 relative h-[30%] w-[100%] flex justify-end items-center">
+                  <a href={Resume} target="_blank" className="resume-a-tag">
+                    <button className="resume bg-[#f29f05] text-lg rounded-full py-1 px-5 ">
+                      <h1 className="text-center">
+                        {" "}
+                        {isPhone ? "Download resume" : "Download Resume"}
+                      </h1>
                     </button>
                   </a>
                 </div>
-                <div className="cell-5-inner-3  p-5 rounded-[1.8rem]  h-[70%] w-[100%] gap-y-5 flex flex-col justify-center items-center bg-blue-200 ">
+                {isPhone && (
+                  <>
+                    <motion.div
+                      variants={childVariants}
+                      layout
+                      data-isOpen={isBlogOpen}
+                      {...(!isBlogOpen && {
+                        onClick: () => expandDiv("Blogs"),
+                      })}
+                      className={`${
+                        isBlogOpen
+                          ? "expanded"
+                          : "flex items-center    justify-center "
+                      }  mt-[30%] blog-div-phone  w-[100%] h-[100%]  rounded-[1.8rem] bg-purple-200 z-[100] flex flex-col items-center  `}
+                    >
+                      {" "}
+                      {!isBlogOpen && (
+                        <>
+                          {" "}
+                          <h1
+                            className={`${
+                              isPhone ? " p-1 text-[2.34rem]" : " text-[2.7rem]"
+                            }  w-[100%] h-[100%] text-center   `}
+                          >
+                            Dive Into My Blogosphere!
+                          </h1>
+                        </>
+                      )}
+                      {isBlogOpen && (
+                        <>
+                          <Blogs isPhone={isPhone} expandDiv={expandDiv} />
+                        </>
+                      )}
+                    </motion.div>
+                  </>
+                )}
+                {isPhone && (
+                  <>
+                    <motion.div
+                      variants={childVariants}
+                      layout
+                      data-isOpen={isContactOpen}
+                      {...(!isContactOpen && {
+                        onClick: () => expandDiv("Contact"),
+                      })}
+                      className={`${
+                        isContactOpen
+                          ? "expanded"
+                          : "flex items-center  bg-green-200 mt-[0%] justify-center"
+                      }   cont-div-phone  w-[100%] h-[100%] py-1 z-[100] flex flex-col items-center  `}
+                    >
+                      {!isContactOpen && (
+                        <>
+                          {" "}
+                          <div className=" w-[100%] h-[100%] text-center px-[3.30%] ">
+                            <h1 className="w-[100%]  text-[2rem]">
+                              Get In Touch?
+                            </h1>
+                            <h2 className="w-[100%]  text-[1.5rem]">
+                              Click here
+                            </h2>
+                          </div>
+                        </>
+                      )}
+                      {isContactOpen && (
+                        <>
+                          <ContactMe
+                            isContactOpen={isContactOpen}
+                            isPhone={isPhone}
+                            expandDiv={expandDiv}
+                          />
+                        </>
+                      )}
+                    </motion.div>
+                  </>
+                )}
+                <div
+                  className={`${
+                    isPhone ? "" : "bg-blue-200"
+                  }  cell-5-inner-3  p-5 rounded-[1.8rem]  h-[70%] w-[100%] gap-y-5 flex flex-col justify-center items-center  `}
+                >
                   {/* <p className="text-xl">Social Links </p> */}
-                  <div className="flex items-center gap-[20%] w-[60%] justify-center ">
+                  <div
+                    className={`${
+                      isPhone ? "w-[85%] gap-7" : "w-[60%]  gap-[20%]"
+                    } flex items-center justify-center relative `}
+                  >
                     {socialLinks.map((item, index) => {
-                      if (item.title === "Email") return;
+                      if (!isPhone && item.title === "Email") return null;
                       return (
                         <>
                           <a href={item.link} target="_blank">

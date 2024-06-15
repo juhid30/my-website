@@ -6,7 +6,7 @@ import CarouselItem from "./CarouselItem";
 import { cards } from "../Data/Data";
 import closeArrow from "../../assets/cross_new.png";
 
-const Projects = ({ expandDiv }) => {
+const Projects = ({ expandDiv, isPhone }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isFlipped, setIsFlipped] = useState(Array(cards.length).fill(false));
 
@@ -50,7 +50,7 @@ const Projects = ({ expandDiv }) => {
       },
     },
     left: {
-      x: "-30%",
+      x: isPhone ? "-10%" : "-25%",
       opacity: 1,
       scale: 0.9,
       //   backgroundImage: "url(" + cards[prevIndex].url + ")",
@@ -63,7 +63,7 @@ const Projects = ({ expandDiv }) => {
     },
     right: {
       //   backgroundImage: "url(" + cards[nextIndex].url + ")",
-      x: "30%",
+      x: isPhone ? "10%" : "25%",
       opacity: 1,
       scale: 0.9,
 
@@ -115,19 +115,23 @@ const Projects = ({ expandDiv }) => {
     },
   };
   return (
-    <div className=" w-[100%] h-[100%] p-5 rounded-[1.8rem] bg-purple-200 flex flex-col items-center  ">
+    <div className=" w-[100%] h-[100%] p-5 rounded-[1.8rem] bg-purple-200 z-[100] flex flex-col items-center  ">
       <div className="float-right absolute top-4 right-3">
-        <img src={closeArrow} onClick={() => expandDiv("Projects")}></img>
+        <img
+          src={closeArrow}
+          onClick={() => expandDiv("Projects")}
+          className="cursor-pointer"
+        ></img>
       </div>
-      <div className="project-description  float-left w-[100%]">
-        <div className="header-content">
+      <div className="project-description  w-[100%]">
+        <div className="">
           <motion.h1
-            className="text-6xl text-jblack text-sb text-center items-center"
+            className="header-content text-6xl text-jblack text-sb text-center items-center"
             variants={headerVariants}
             initial="initial"
             animate="animate"
           >
-            Explore my projects
+            {isPhone ? "Projects" : "Explore my projects"}
           </motion.h1>
         </div>
         {/* <motion.div
@@ -148,7 +152,7 @@ const Projects = ({ expandDiv }) => {
       </div>
       {/*Carousel*/}
       <motion.div className="carousel-wrapper w-[100%] h-full flex flex-col items-center justify-center gap-y-5">
-        <motion.div className="carousel-content relative flex items-center justify-center w-[80%] h-[74%] ">
+        <motion.div className="carousel-content relative flex  items-center justify-center w-[80%] h-[74%] ">
           <AnimatePresence initial={false}>
             <motion.div
               key={prevIndex}
@@ -156,9 +160,10 @@ const Projects = ({ expandDiv }) => {
               initial="leftHidden"
               animate="left"
               exit="leftHidden"
-              className="carousel-item"
+              className="carousel-item "
             >
               <CarouselItem
+                isPhone={isPhone}
                 index={prevIndex}
                 isFlipped={isFlipped}
                 setIsFlipped={setIsFlipped}
@@ -172,6 +177,7 @@ const Projects = ({ expandDiv }) => {
               className="carousel-item"
             >
               <CarouselItem
+                isPhone={isPhone}
                 index={currentIndex}
                 isFlipped={isFlipped}
                 setIsFlipped={setIsFlipped}
@@ -186,6 +192,7 @@ const Projects = ({ expandDiv }) => {
               className="carousel-item"
             >
               <CarouselItem
+                isPhone={isPhone}
                 index={nextIndex}
                 isFlipped={isFlipped}
                 setIsFlipped={setIsFlipped}

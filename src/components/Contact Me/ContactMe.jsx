@@ -1,9 +1,14 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { fadeInAnim, socialLinks } from "../Data/Data";
+import {
+  childVariants,
+  fadeInAnim,
+  parentVariants,
+  socialLinks,
+} from "../Data/Data";
 import { useState } from "react";
 import closeArrow from "../../assets/cross_new.png";
 
-const ContactMe = ({ isContactOpen, expandDiv }) => {
+const ContactMe = ({ isContactOpen, isPhone, expandDiv }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -59,47 +64,67 @@ const ContactMe = ({ isContactOpen, expandDiv }) => {
         <>
           <AnimatePresence>
             <motion.div
-              initial={{
-                y: "-50%",
-                opacity: 0,
-                scale: 1,
-              }}
-              animate={{
-                y: 0,
-                opacity: 1,
-                scale: 1,
-              }}
-              exit={{ y: "-50%", opacity: 0, scale: 1 }}
-              transition={{
-                duration: 1,
-              }}
-              className="w-[100%] h-[100%] z-[120] absolute top-0 left-0 rounded-[1.8rem] bg-yellow-200"
+              {...(!isPhone && {
+                initial: { y: "-50%", opacity: 0, scale: 1 },
+                animate: { y: 0, opacity: 1, scale: 1 },
+                transition: { delay: 0.3, duration: 1 },
+              })}
+              {...(isPhone && { variants: { parentVariants } })}
+              layout
+              className={` ${
+                isPhone ? "relative " : "w-[100%] h-[100%] rounded-[1.8rem]"
+              } contact-div-open  z-[120] absolute top-0 left-0  bg-yellow-200  `}
             >
               <motion.div
                 initial="hidden"
                 animate="show"
-                variants={fadeInAnim}
-                className=" p-5  flex  rounded-[1.8rem] h-[100%] text-left text-[150%] text-jblack"
+                layout
+                {...(!isPhone && { variants: { fadeInAnim } })}
+                {...(isPhone && { variants: { childVariants } })}
+                className={` ${
+                  isPhone ? "flex flex-col" : ""
+                } p-5  flex  rounded-[1.8rem] h-[100%] text-left text-[150%] text-jblack relative`}
               >
-                <div className="absolute top-5 right-5 ">
+                <div
+                  className={` ${isPhone ? "" : "absolute top-5 right-5 "} `}
+                >
                   <img
                     src={closeArrow}
                     onClick={() => {
                       expandDiv("Contact");
                     }}
-                    className="float-right"
+                    className={` ${
+                      isPhone ? "absolute top-2 right-3" : ""
+                    } float-right cursor-pointer`}
                   ></img>
                 </div>{" "}
-                <motion.div variants={fadeInAnim} className="w-[45%]">
+                <motion.div
+                  layout
+                  {...(!isPhone && { variants: { fadeInAnim } })}
+                  {...(isPhone && { variants: { childVariants } })}
+                  className={` ${isPhone ? "" : "w-[45%]"} `}
+                >
                   <motion.h1
-                    variants={fadeInAnim}
-                    className="text-6xl p-4 px-3"
+                    layout
+                    {...(!isPhone && { variants: { fadeInAnim } })}
+                    {...(isPhone && { variants: { childVariants } })}
+                    className={` ${
+                      isPhone
+                        ? " w-[100%] text-[3.2rem] leading-[4rem] py-4 "
+                        : "text-6xl p-4 px-3"
+                    } `}
                   >
                     Contact Details
                   </motion.h1>
                   <motion.p
-                    variants={fadeInAnim}
-                    className="mt-[10%] w-[80%] relative left-10 text-[1.2rem] text-justify"
+                    layout
+                    {...(!isPhone && { variants: { fadeInAnim } })}
+                    {...(isPhone && { variants: { childVariants } })}
+                    className={` ${
+                      isPhone
+                        ? "w-[90%] mt-[17%] text-[1.3rem] "
+                        : " left-10 w-[80%] text-[1.2rem]  mt-[10%] "
+                    } relative text-justify`}
                   >
                     Thank you for your interest in getting in touch with me.
                     Whether you have a question, want to collaborate on a
@@ -107,24 +132,38 @@ const ContactMe = ({ isContactOpen, expandDiv }) => {
                     you!<br></br>Feel free to reach out!
                   </motion.p>
                   <motion.div
-                    variants={fadeInAnim}
-                    className=" grid grid-cols-2 grid-rows-2 w-[97%] relative left-[8%] gap-6 top-[10%]"
+                    layout
+                    {...(!isPhone && { variants: { fadeInAnim } })}
+                    {...(isPhone && { variants: { childVariants } })}
+                    className={` ${
+                      isPhone ? "hidden" : ""
+                    } grid grid-cols-2 grid-rows-2 w-[97%] relative left-[8%] gap-6 top-[10%]`}
                   >
                     {socialLinks.map((item, index) => {
                       return (
                         <>
                           <motion.div
-                            variants={fadeInAnim}
+                            layout
+                            {...(!isPhone && { variants: { fadeInAnim } })}
+                            {...(isPhone && { variants: { childVariants } })}
                             key={index}
-                            className="relative w-[95%] flex items-center gap-2 text-xl h-fit  my-5"
+                            className={` ${
+                              isPhone ? "" : ""
+                            } relative w-[95%] flex items-center gap-2 text-xl h-fit  my-5`}
                           >
                             <a href={item.link} target="_blank">
                               <motion.img
                                 src={item.icon}
-                                className="w-7 cursor-pointer   h-7"
+                                className={` ${
+                                  isPhone ? "" : ""
+                                } w-7 cursor-pointer   h-7`}
                               ></motion.img>
                             </a>
-                            <motion.div className="flex gap-3 items-center  ">
+                            <motion.div
+                              className={` ${
+                                isPhone ? "" : ""
+                              } flex gap-3 items-center  `}
+                            >
                               <motion.p>{item.ref}</motion.p>
                             </motion.div>
                           </motion.div>
@@ -133,66 +172,106 @@ const ContactMe = ({ isContactOpen, expandDiv }) => {
                     })}
                   </motion.div>
                 </motion.div>
-                <motion.div className="w-[55%] text-2xl mt-7 px-[5%]">
+                <motion.div
+                  className={` ${
+                    isPhone
+                      ? "w-[100%] mt-5 flex flex-col items-center h-[30rem]"
+                      : "w-[55%] mt-7 px-[5%]"
+                  }  text-2xl `}
+                >
                   <motion.div
-                    variants={fadeInAnim}
-                    className="h-[85%] my-[9%] p-2 "
+                    layout
+                    {...(!isPhone && { variants: { fadeInAnim } })}
+                    {...(isPhone && { variants: { childVariants } })}
+                    className={` ${
+                      isPhone ? "w-[100%] h-[100%]" : "h-[85%] my-[9%]"
+                    }   p-2 `}
                   >
                     {!submitted ? (
                       <motion.form
-                        variants={fadeInAnim}
+                        layout
+                        {...(!isPhone && { variants: { fadeInAnim } })}
+                        {...(isPhone && { variants: { childVariants } })}
                         onSubmit={handleSubmit}
-                        className="flex flex-col gap-7"
+                        className={` ${isPhone ? "" : ""} flex flex-col gap-7`}
                       >
                         {/* Your form inputs */}
                         <motion.input
-                          variants={fadeInAnim}
+                          layout
+                          {...(!isPhone && { variants: { fadeInAnim } })}
+                          {...(isPhone && { variants: { childVariants } })}
                           type="text"
                           name="name"
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="Name"
-                          className="w-[60%] rounded placeholder:px-2"
+                          className={` ${
+                            isPhone ? " w-[90%]" : " w-[60%]"
+                          } rounded placeholder:px-2`}
                         ></motion.input>
                         {formErrors.name && (
-                          <p className="text-red-500 -mt-8 px-2">
+                          <p
+                            className={` ${
+                              isPhone ? "px-1" : "px-2"
+                            } text-red-500 -mt-8 `}
+                          >
                             {formErrors.name}
                           </p>
                         )}
                         <motion.input
-                          variants={fadeInAnim}
+                          layout
+                          {...(!isPhone && { variants: { fadeInAnim } })}
+                          {...(isPhone && { variants: { childVariants } })}
                           type="email"
                           name="email"
                           placeholder="Email"
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-[60%] rounded placeholder:px-2"
+                          className={` ${
+                            isPhone ? " w-[90%]" : " w-[60%]"
+                          } rounded placeholder:px-2`}
                         ></motion.input>
                         {formErrors.email && (
-                          <p className="text-red-500 -mt-8 px-2">
+                          <p
+                            className={` ${
+                              isPhone ? "px-1" : "px-2"
+                            } text-red-500 -mt-8 `}
+                          >
                             {formErrors.email}
                           </p>
                         )}
 
                         <motion.textarea
-                          variants={fadeInAnim}
+                          layout
+                          {...(!isPhone && { variants: { fadeInAnim } })}
+                          {...(isPhone && { variants: { childVariants } })}
                           name="message"
                           placeholder="Your Message"
                           cols={50}
                           rows={6}
-                          className="rounded placeholder:px-2 placeholer:py-4"
+                          className={` ${
+                            isPhone ? "" : ""
+                          } rounded placeholder:px-2 placeholer:py-4`}
                           value={formData.message}
                           onChange={handleChange}
                         ></motion.textarea>
                         {formErrors.message && (
-                          <p className="text-red-500 -mt-8 px-2">
+                          <p
+                            className={` ${
+                              isPhone ? "px-1" : "px-2"
+                            } text-red-500 -mt-8`}
+                          >
                             {formErrors.message}
                           </p>
                         )}
                         <motion.button
-                          variants={fadeInAnim}
+                          layout
+                          {...(!isPhone && { variants: { fadeInAnim } })}
+                          {...(isPhone && { variants: { childVariants } })}
                           type="submit"
-                          className="bg-white p-1 text-jblack  px-2 rounded self-end"
+                          className={` ${
+                            isPhone ? "" : ""
+                          } bg-white p-1 text-jblack  px-2 rounded self-end`}
                         >
                           Submit
                         </motion.button>
@@ -204,9 +283,17 @@ const ContactMe = ({ isContactOpen, expandDiv }) => {
                         transition={{
                           duration: 0.1,
                         }}
-                        className="text-center items-center relative top-[35%]"
+                        className={` ${
+                          isPhone
+                            ? "h-[100%]  flex  relative"
+                            : "relative top-[35%]"
+                        } text-center items-center `}
                       >
-                        <p className="text-5xl">
+                        <p
+                          className={` ${
+                            isPhone ? "text-[2.5rem] text-center" : " text-5xl"
+                          }`}
+                        >
                           Thank you for your submission!
                         </p>
                       </motion.div>

@@ -2,7 +2,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Avatar } from "./Avatar";
 import { useControls } from "leva";
 
-export const Experience = ({ isAboutOpen }) => {
+export const Experience = ({ isAboutOpen, isPhone }) => {
   // const animations = useControls({
   //   animations: {
   //     value: "Breathing",

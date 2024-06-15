@@ -4,7 +4,7 @@ const AboutMe = () => {
   return (
     <>
       {" "}
-      <div className="w-[60%] text-left bg-[#e0d1b1] p-5 relative  ">
+      <div className="about-me-desc w-[60%] text-left bg-[#ddd8ce] p-5 relative  ">
         {/* <div className="float-right bg-red-200 m">
           <img src={closeArrow}></img>
         </div> */}
@@ -46,7 +46,7 @@ const AboutMe = () => {
 
         <section className="experience mb-4  ">
           <h2 className="text-4xl font-medium  mb-2">Experience</h2>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="">
             <div>
               <ul className="list-disc ml-5">
                 <li>Software Developer at XYZ Corp</li>
@@ -54,13 +54,13 @@ const AboutMe = () => {
                 <li>Intern at Tech Startup</li>
               </ul>
             </div>
-            <div>
+            {/* <div>
               <ul className="list-disc ml-5">
                 <li>Software Developer at XYZ Corp</li>
                 <li>Frontend Developer at ABC Inc</li>
                 <li>Intern at Tech Startup</li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </section>
 
