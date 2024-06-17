@@ -139,7 +139,7 @@ const Blogs = ({ isPhone, expandDiv, isDarkModeOn }) => {
                       className={` ${
                         isPhone
                           ? `float-right ${
-                              isDarkModeOn ? "bg-[#c9cdb4]" : "bg-blue-100"
+                              isDarkModeOn ? "bg-[#c9cdb4]" : "bg-purple-100"
                             } `
                           : ""
                       } ${
