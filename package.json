@@ -16,7 +16,6 @@
     "classnames": "^2.5.1",
     "framer-motion": "^11.2.10",
     "gsap": "^3.12.5",
-    "leva": "^0.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.6.4",

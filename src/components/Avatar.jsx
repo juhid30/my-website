@@ -17,10 +17,16 @@ export function Avatar({ isAboutOpen }) {
   const { nodes, materials } = useGLTF("models/66004d88f66d96389dbbc4d.glb");
 
   const { animations: breathingAnimation } = useFBX(
-    "/public/animations/Breathing.fbx"
+    "/animations/Breathing.fbx",
+    (object) => console.log("Breathing.fbx loaded successfully"),
+    undefined,
+    (error) => console.error("Error loading Breathing.fbx:", error)
   );
   const { animations: dancingAnim } = useFBX(
-    "/public/animations/Gangnam Style.fbx"
+    "/animations/Gangnam Style.fbx",
+    (object) => console.log("Gangnam Style.fbx loaded successfully"),
+    undefined,
+    (error) => console.error("Error loading Gangnam Style.fbx:", error)
   );
   const [selectedAnimation, setSelectedAnimation] = useState("");
 
