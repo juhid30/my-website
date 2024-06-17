@@ -58,7 +58,10 @@ const Navbar = ({
                 }}
               >
                 <motion.div className="handle" layout transition={spring}>
-                  <img src={isDarkModeOn ? moon : sun} className=""></img>
+                  <img
+                    src={isDarkModeOn ? moon : sun}
+                    className="cursor-pointer"
+                  ></img>
                 </motion.div>
               </div>
             </div>

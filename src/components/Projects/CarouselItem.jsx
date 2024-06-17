@@ -89,9 +89,9 @@ function CarouselItem({
 
           <div
             className={`${
-              isDarkModeOn ? " bg-[#c5b894e9] " : " bg-[#73418d]"
+              isDarkModeOn ? " bg-[#c5b894fb]" : " bg-[#73418d]  text-jwhite  "
             } flip-card-back relative w-[100%] flex ${
-              isPhone ? " text-jwhite" : "text-jwhite"
+              isPhone ? " text-jwhite" : ""
             }   justify-center items-center rounded-[1.8rem] h-[100%] `}
           >
             <div

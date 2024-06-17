@@ -83,7 +83,7 @@ const MainDisplay = ({
       <div
         className={`${
           isDarkModeOn ? "bg-jblack" : ""
-        } flex flex-grow items-center justify-center h-[100%]`}
+        } flex flex-grow items-center justify-center h-[100%] cursor-default`}
       >
         <motion.div
           initial="hidden"
@@ -154,7 +154,7 @@ const MainDisplay = ({
                         >
                           <motion.img
                             src={isDarkModeOn ? moon : sun}
-                            className=""
+                            className=" cursor-pointer"
                           ></motion.img>
                         </motion.div>
                       </motion.div>
@@ -262,7 +262,7 @@ const MainDisplay = ({
                     <div
                       className={` ${
                         isDarkModeOn ? "bg-[#ff8a62]" : "bg-blue-200"
-                      } project-closed-banner w-[100%] h-[100%]  p-5   flex flex-col items-center cursor-pointer rounded-[1.8rem] `}
+                      } project-closed-banner w-[100%] h-[100%] p-5 flex flex-col items-center cursor-pointer rounded-[1.8rem] `}
                       onClick={() => expandDiv("Projects")}
                     >
                       <div className="project-closed-img-div  w-[100%] h-[50%]">

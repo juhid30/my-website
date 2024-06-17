@@ -41,6 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .body-container {
@@ -180,6 +181,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
 
   /* #sidebar-wrapper {
@@ -527,6 +529,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
   }
   .project-closed-banner {
     /* background-color: pink !important; */
