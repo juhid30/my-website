@@ -12,15 +12,15 @@ const AboutMe = ({ isDarkModeOn, isPhone }) => {
         {/* <div className="float-right bg-red-200 m">
           <img src={closeArrow}></img>
         </div> */}
-        <section className="about-me mb-4">
+        <section className=" about-me mb-4">
           <h2
             className={` ${
               isPhone ? "text-center" : ""
-            } text-4xl font-medium mb-3`}
+            } text-4xl font-medium mb-3 about-title`}
           >
             About Me
           </h2>
-          <p>
+          <p className="about-text">
             I'm Juhi Deore, driven by a passion for continuous learning and
             inspired by collaborative teamwork. I enjoy creating inclusive
             environments and have had the privilege of managing teams and
@@ -37,19 +37,19 @@ const AboutMe = ({ isDarkModeOn, isPhone }) => {
           <h2
             className={` ${
               isPhone ? "text-center" : ""
-            } text-4xl font-medium mb-5`}
+            } text-4xl font-medium mb-5 about-title`}
           >
             Skills
           </h2>
           <div
             className={`${
               isPhone ? "w-[100%]" : "w-[80%]"
-            }  grid grid-cols-4 gap-4`}
+            }  grid grid-cols-4 gap-4 about-text`}
           >
             {skillList.map((skill) => (
               <motion.div
                 key={skill.id}
-                className="skill-item flex flex-col items-center "
+                className="skill-item flex flex-col justify-center  items-center "
               >
                 <motion.img
                   initial={{ scale: 1 }}
@@ -72,13 +72,13 @@ const AboutMe = ({ isDarkModeOn, isPhone }) => {
           <h2
             className={` ${
               isPhone ? "text-center" : ""
-            }  text-4xl font-medium  mb-2`}
+            }  text-4xl font-medium  mb-2 about-title`}
           >
             Experience
           </h2>
           <div className="">
             <div>
-              <ul className="list-disc ml-5">
+              <ul className="list-disc about-text ml-5">
                 <li>Software Developer at XYZ Corp</li>
                 <li>Frontend Developer at ABC Inc</li>
                 <li>Intern at Tech Startup</li>
@@ -99,7 +99,7 @@ const AboutMe = ({ isDarkModeOn, isPhone }) => {
             isPhone ? "flex justify-center" : ""
           }  contact-info mt-5`}
         >
-          <div className="flex space-x-10">
+          <div className="flex space-x-10 ">
             {socialLinks.map((link) => (
               <a
                 href={link.link}

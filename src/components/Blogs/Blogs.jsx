@@ -81,31 +81,35 @@ const Blogs = ({ isPhone, expandDiv, isDarkModeOn }) => {
                   <div
                     className={` ${
                       isPhone
-                        ? "flex flex-col  items-center justify-evenly   mb-5 w-[100%] h-[55%]"
-                        : "mt-6  w-[94%] h-[45%] flex  justify-between"
-                    }  `}
+                        ? "flex flex-col  items-center justify-evenly mb-5 w-[100%] h-[55%]"
+                        : `mt-6  w-[94%] h-[45%] flex ${
+                            isDarkModeOn ? "bg-[#9e7a86]" : "bg-[#dcdac0]"
+                          }  justify-center `
+                    } selected-blog-header  `}
                   >
                     <div
                       className={` ${
                         isPhone
                           ? "w-[100%]  flex justify-center items-center h-[70%]"
                           : "w-[45%] h-[100%]"
-                      } `}
+                      } selected-blog-img`}
                     >
                       <img
                         src={openBlog.url}
-                        className="h-[100%] object-fit"
+                        className="h-[100%] w-[100%] object-fit"
                       ></img>
                     </div>
                     <div
                       className={` ${
                         isPhone
-                          ? " w-[100%] text-[2.4rem] leading-[3rem] mt-3"
-                          : "text-6xl w-[50%] "
+                          ? " w-[100%]  text-[2.4rem] leading-[3rem] mt-3"
+                          : `text-[3.2rem] w-[55%] `
                       } flex items-center `}
                     >
                       <h1
-                        className={`${isPhone ? "w-[100%]" : ""} text-center `}
+                        className={`${
+                          isPhone ? "w-[100%]" : ""
+                        } selected-blog-title text-center `}
                       >
                         {" "}
                         {openBlog.title}
@@ -156,7 +160,7 @@ const Blogs = ({ isPhone, expandDiv, isDarkModeOn }) => {
                       <motion.div
                         key={blog.id}
                         initial={{ scale: 1 }}
-                        whileHover={{ opacity: 1, scale: 1.1 }}
+                        whileHover={{ opacity: 1, scale: 1.05 }}
                         transition={{
                           duration: 0.5,
                           ease: easeOut,
@@ -172,7 +176,7 @@ const Blogs = ({ isPhone, expandDiv, isDarkModeOn }) => {
                               ? "bg-[#97a27e]"
                               : "bg-[#98727d]"
                             : "bg-pink-100 border-2"
-                        }  cursor-pointer rounded-[0.4rem]  flex items-center justify-center text-3xl  `}
+                        } blog-card cursor-pointer rounded-[0.4rem]  flex items-center justify-center text-3xl  `}
                       >
                         <h1 className="w-[100%]  text-center leading-relaxed">
                           {blog.title.split(" ").map((word, index) => (
@@ -194,7 +198,7 @@ const Blogs = ({ isPhone, expandDiv, isDarkModeOn }) => {
             {...(!isPhone && { variants: { fadeInAnim } })}
             {...(isPhone && { variants: { childVariants } })}
             className={`${
-              isPhone ? "" : "gap-5"
+              isPhone ? "" : "gap-5 pr-2"
             } text-div text-left flex flex-col  items-center w-[35%]`}
           >
             <div
@@ -214,15 +218,15 @@ const Blogs = ({ isPhone, expandDiv, isDarkModeOn }) => {
             </div>
             <h1
               className={`${
-                isPhone ? " text-[4rem]" : "text-[600%] "
-              }  w-[100%]`}
+                isPhone ? " text-[4rem]" : "text-[530%] "
+              } blog-heading  w-[100%]`}
             >
               Blogs
             </h1>
             <p
               className={`${
                 isPhone ? "p-2 mt-5 text-[85%]" : "text-[80%] text-base"
-              }  p-3 w-[100%] `}
+              } blog-intro-para pl-2 pr-3 w-[100%] `}
             >
               I've found solace in expressing and sharing my feelings and
               experiences through blog writing. It's a powerful outlet to

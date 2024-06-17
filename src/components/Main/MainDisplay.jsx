@@ -91,7 +91,7 @@ const MainDisplay = ({
           variants={parentVariants}
           className={`${
             isDarkModeOn ? "bg-jblack" : ""
-          } body-container w-[96%] h-[38rem] rounded-[1.8rem]  gap-2 p-2 flex flex-col justify-center`}
+          } body-container relative w-[96%] h-[38rem] rounded-[1.8rem]  gap-2 p-2 flex flex-col justify-center`}
         >
           <motion.div className="row-1 gap-3 flex h-[52%]">
             {isContactOpen && !isPhone && (
@@ -113,7 +113,7 @@ const MainDisplay = ({
               variants={childVariants}
               className={`${
                 isDarkModeOn ? "bg-jwhite" : " bg-pink-400"
-              } cell-1 w-[70%] rounded-[1.8rem]   p-6 relative overflow-hidden text-left text-[340%] `}
+              } cell-1 w-[70%] rounded-[1.8rem] p-6 relative overflow-hidden text-left text-[3.6rem]  `}
             >
               {/* [#f7f4e3] */}{" "}
               <div className="text-left intro-text ml-8">
@@ -125,16 +125,23 @@ const MainDisplay = ({
                   </>
                 ) : (
                   <>
-                    <h1 className="text-[3.6rem] leading-tight text-left">
+                    <h1 className=" leading-tight text-left">
                       {" "}
                       Transforming Ideas into Experiences.
                     </h1>
-                    <div className="flex  mt-7  items-center">
-                      <h2 className="text-[1.7rem] ">That's me! </h2>
+                    <div
+                      className="para-div flex  
+                    mt-7
+                    items-center"
+                    >
+                      {/* leading-[6rem] */}
+                      <h2 className="banner-para text-[1.7rem] ">
+                        That's me!{" "}
+                      </h2>
                       <motion.div
                         className={`${
-                          isDarkModeOn ? "bg-[#98958166]" : "bg-[#e7d5d566]"
-                        }  switch flex w-[8%] ml-5 h-[90%] `}
+                          isDarkModeOn ? "bg-[#9f9e9b66]" : "bg-[#e7d5d566]"
+                        }  switch relative flex w-[8%] ml-5 h-[90%] `}
                         data-isDarkModeOn={isDarkModeOn}
                         onClick={toggleSwitch}
                       >
@@ -142,7 +149,7 @@ const MainDisplay = ({
                           layout
                           transition={spring}
                           className={`handle ${
-                            isDarkModeOn ? "bg-[#00000066]" : "bg-white"
+                            isDarkModeOn ? "bg-[#615b5b6d]" : "bg-white"
                           } `}
                         >
                           <motion.img
@@ -155,7 +162,7 @@ const MainDisplay = ({
                   </>
                 )}{" "}
               </div>
-              <div className=" float-right absolute -right-[7%] -top-[20%] ">
+              <div className="transparent-bg-img-div float-right absolute -right-[7%] -top-[20%] ">
                 <img
                   src={pattern}
                   alt="pattern"
@@ -185,7 +192,7 @@ const MainDisplay = ({
                     : "bg-[#e6456d]"
                   : "bg-green-200  "
               } 
-               cell-2 flex rounded-[1.8rem] overflow-hidden cursor-default`}
+               cell-2 flex rounded-[1.8rem] relative overflow-hidden cursor-default`}
             >
               <motion.div
                 // initial={{ opacity: 0, scale: 0 }}
@@ -326,7 +333,7 @@ const MainDisplay = ({
                     : " bg-red-200"
                 } cell-5-inner-1  p-5 rounded-[1.8rem] flex items-center justify-center w-[100%] h-[40%]`}
               >
-                <h1 className="text-3xl text-center ">
+                <h1 className="occupation-text text-3xl text-center ">
                   Software Developer
                   {/* No. of Projects :{" "}
                   <span className="font-semibold">{cards.length}</span> */}
@@ -450,8 +457,8 @@ const MainDisplay = ({
                   {/* <p className="text-xl">Social Links </p> */}
                   <div
                     className={`${
-                      isPhone ? "w-[85%] gap-7" : "w-[60%]  gap-[20%]"
-                    } flex items-center justify-center  `}
+                      isPhone ? "w-[85%] gap-7" : "w-[75%]   gap-[20%]"
+                    } social-link-div flex items-center justify-center relative  `}
                   >
                     {socialLinks.map((item, index) => {
                       if (!isPhone && item.title === "Email") return null;
@@ -466,7 +473,7 @@ const MainDisplay = ({
                                 ease: easeOut,
                               }}
                               src={item.icon}
-                              className="w-10 h-10 cursor-pointer"
+                              className="social-link-icon  w-10 h-10 cursor-pointer"
                             ></motion.img>
                           </a>
                         </>

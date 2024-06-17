@@ -97,13 +97,13 @@ function CarouselItem({
             <div
               className={` ${
                 isPhone ? " gap-2 p-4 flex flex-col" : "w-[90%] flex"
-              }   items-center justify-center h-[100%]`}
+              }  flip-card-back-content items-center justify-center h-[100%]`}
             >
               <div
                 className={` ${
                   isPhone
-                    ? "onject-contain relative w-[50%] h-[50%]"
-                    : "w-[50%] h-[40%] float-left   "
+                    ? "object-contain relative w-[50%] h-[50%]"
+                    : "w-[50%] h-[40%] float-left"
                 } flex items-center `}
               >
                 <img

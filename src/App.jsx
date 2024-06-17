@@ -7,6 +7,9 @@ const App = () => {
 
   const toggleSwitch = () => setIsDarkModeOn(!isDarkModeOn);
   const [isPhone, setIsPhone] = useState(window.innerWidth <= 767);
+  const [isTab, setIsTab] = useState(
+    window.innerWidth > 767 && window.innerWidth <= 980
+  );
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isProjectOpen, setIsProjectOpen] = useState(false);
   const [isBlogOpen, setIsBlogOpen] = useState(false);
@@ -69,6 +72,7 @@ const App = () => {
         {/* <section className="sticky top-0 left-0 w-full h-[8vh]"> */}
         <Navbar
           isPhone={isPhone}
+          // isTab={isTab}
           isAboutOpen={isAboutOpen}
           isBlogOpen={isBlogOpen}
           isContactOpen={isContactOpen}
@@ -81,6 +85,7 @@ const App = () => {
         {/* <section className="flex flex-grow bg-blue-700"> */}
         <MainDisplay
           isPhone={isPhone}
+          // isTab={isTab}
           isAboutOpen={isAboutOpen}
           isBlogOpen={isBlogOpen}
           isContactOpen={isContactOpen}

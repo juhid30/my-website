@@ -126,7 +126,7 @@ const ContactMe = ({ isContactOpen, isPhone, expandDiv, isDarkModeOn }) => {
                       isPhone
                         ? "w-[90%] mt-[17%] text-[1.3rem] "
                         : " left-10 w-[80%] text-[1.2rem]  mt-[10%] "
-                    } relative text-justify`}
+                    } contact-para relative text-justify`}
                   >
                     Thank you for your interest in getting in touch with me.
                     Whether you have a question, want to collaborate on a
@@ -139,7 +139,7 @@ const ContactMe = ({ isContactOpen, isPhone, expandDiv, isDarkModeOn }) => {
                     {...(isPhone && { variants: { childVariants } })}
                     className={` ${
                       isPhone ? "hidden" : ""
-                    } grid grid-cols-2 grid-rows-2 w-[97%] relative left-[8%] gap-6 top-[10%]`}
+                    }  contact-icons grid grid-cols-2 grid-rows-2  w-[123%] relative gap-3 top-[9.7%]`}
                   >
                     {socialLinks.map((item, index) => {
                       return (
@@ -151,20 +151,20 @@ const ContactMe = ({ isContactOpen, isPhone, expandDiv, isDarkModeOn }) => {
                             key={index}
                             className={` ${
                               isPhone ? "" : ""
-                            } relative w-[95%] flex items-center gap-2 text-xl h-fit  my-5`}
+                            } contact-icons-div-indiv relative flex items-center left-6 gap-1 text-xl h-fit my-5`}
                           >
                             <a href={item.link} target="_blank">
                               <motion.img
                                 src={item.icon}
                                 className={` ${
                                   isPhone ? "" : ""
-                                } w-7 cursor-pointer   h-7`}
+                                } contact-me-img w-7 cursor-pointer   h-7`}
                               ></motion.img>
                             </a>
                             <motion.div
                               className={` ${
                                 isPhone ? "" : ""
-                              } flex gap-3 items-center  `}
+                              } contact-text flex items-center `}
                             >
                               <motion.p>{item.ref}</motion.p>
                             </motion.div>
