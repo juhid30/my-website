@@ -50,7 +50,7 @@ const Navbar = ({
           <>
             <div className="float-right z-[120] h-[2rem] w-[90%]  ">
               <div
-                className="switch float-right flex w-[3.7rem] ml-5 h-[100%] "
+                className="switch float-right flex  w-[3.7rem] ml-5 h-[90%] "
                 data-isDarkModeOn={isDarkModeOn}
                 onClick={() => {
                   // console.log("Dark");

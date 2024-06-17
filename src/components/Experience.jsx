@@ -14,7 +14,7 @@ export const Experience = ({ isAboutOpen, isPhone }) => {
     <>
       {/* <OrbitControls /> */}
       <group
-        scale={isAboutOpen ? 1.2 : 1}
+        scale={isAboutOpen ? 1.25 : 1}
         position-z={isAboutOpen ? -3.6 : 0}
         position-y={isAboutOpen ? -1.2 : -1.4}
         position-x={isAboutOpen ? 0 : 0}

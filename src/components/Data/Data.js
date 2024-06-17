@@ -7,7 +7,7 @@ import css from "../../assets/css-3.png";
 import js from "../../assets/js.png";
 import java from "../../assets/java.png";
 import react from "../../assets/physics.png";
-import cprog from "../../assets/cropped.jpg";
+import cprog from "../../assets/cropped-removebg-preview.png";
 import tailwind from "../../assets/cropped__1_-removebg-preview.png";
 import ForgeFinance from "../../assets/ForgeFinance.png";
 import TarakkiDashboard from "../../assets/Tarakki Dashboard.jpeg";

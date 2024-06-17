@@ -413,9 +413,9 @@ const MainDisplay = ({
                         isContactOpen
                           ? "expanded"
                           : isDarkModeOn
-                          ? "flex items-center    bg-[#769f96] mt-[0%] justify-center"
+                          ? "flex items-center bg-[#769f96] mt-[0%] justify-center"
                           : "flex items-center py-1  mt-[0%] justify-center"
-                      }   cont-div-phone  w-[100%] h-[100%]  flex flex-col   bg-green-200 items-center  `}
+                      }   cont-div-phone  w-[100%] h-[100%]  flex flex-col rounded-[0.9rem]  bg-green-200 items-center  `}
                     >
                       {!isContactOpen && (
                         <>

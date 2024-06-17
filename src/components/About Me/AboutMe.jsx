@@ -79,9 +79,9 @@ const AboutMe = ({ isDarkModeOn, isPhone }) => {
           <div className="">
             <div>
               <ul className="list-disc about-text ml-5">
-                <li>Software Developer at XYZ Corp</li>
-                <li>Frontend Developer at ABC Inc</li>
-                <li>Intern at Tech Startup</li>
+                <li>Administrative Assistant at St. Xavier's College</li>
+                <li>Assistant Intern at Asmi by Arch</li>
+                <li>Web Developer at Devs Club, TSEC</li>
               </ul>
             </div>
             {/* <div>
