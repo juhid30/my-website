@@ -117,7 +117,7 @@ function CarouselItem({
               </div>
               <div
                 className={` ${
-                  isPhone ? "gap-1 text-left text-[0.9rem] h-[50%]" : "h-[90%]"
+                  isPhone ? "gap-1 text-left text-[0.83rem] h-[50%]" : "h-[90%]"
                 } w-[100%]  flex flex-col gap-3 items-center  text-center justify-center`}
               >
                 <h1 className={`${isPhone ? "" : "text-4xl mb-5"}`}>

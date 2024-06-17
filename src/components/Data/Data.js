@@ -233,6 +233,7 @@ const cards = [
       "MongoDB",
       "Express",
       "React",
+
       "Nodejs",
       "Python",
     ],
@@ -244,7 +245,7 @@ const cards = [
     brief: "Personal Portfolio",
     para: `My portfolio showcases projects where I've applied skills and absorbed new insights, reflecting my journey of growth and development through continuous improvement and innovation.`,
     logo: pp,
-    tools: ["HTML", "CSS", "React", "Tailwind CSS"],
+    tools: ["HTML", "CSS", "React", "Three.js", "Tailwind CSS"],
   },
   {
     id: 5,
@@ -253,7 +254,15 @@ const cards = [
     brief: "Simplifying Student Life",
     para: `'Vidyarthi' is a student-centric website that simplifies common tasks, streamlining administrative hassles to empower students and foster a supportive academic environment.`,
     logo: vidyarthilogo,
-    tools: ["HTML", "Tailwind CSS", "MongoDB", "Express", "React", "Nodejs"],
+    tools: [
+      "HTML",
+      "Tailwind CSS",
+      "MongoDB",
+      "Express",
+      "React",
+      "Three.js",
+      "Nodejs",
+    ],
   },
 ];
 
