@@ -318,7 +318,7 @@ const blogs = [
   },
   {
     id: 4,
-    title: "First Hackathon",
+    title: "Lorem ipsum",
     description: `Participating in our first hackathon was a blend of nerves
           and excitement. Unsure if our skills were sufficient, we
           took a leap of faith and registered. Surprisingly, we
@@ -334,7 +334,7 @@ const blogs = [
   },
   {
     id: 5,
-    title: "First Hackathon",
+    title: "Lorem ipsum",
     description: `Participating in our first hackathon was a blend of nerves
           and excitement. Unsure if our skills were sufficient, we
           took a leap of faith and registered. Surprisingly, we
@@ -350,7 +350,7 @@ const blogs = [
   },
   {
     id: 6,
-    title: "HSC Excellence",
+    title: "Lorem ipsum",
     para: `Achieved 2nd place in HSC exams amidst extracurricular engagement, grateful for St. Xavier's support.`,
     description: `As the curtains drew on my 12th-grade journey, I found myself standing on the podium of academic achievement, securing the 2nd place in my college academically in the HSC Board examinations. It was a moment of immense pride and gratitude, a culmination of hard work, dedication, and the unwavering support of my teachers. Despite being deeply involved in extracurricular activities, I managed to achieve a remarkable 93.33%, a testament to the balance between academics and holistic development.
     My journey through junior college at St. Xavier's College, Mumbai, was nothing short of exhilarating experiences. From the moment I stepped into the campus, I knew I was embarking on a transformative experience. The vibrant atmosphere fueled my passion for both academics and extracurricular pursuits.
@@ -361,7 +361,7 @@ const blogs = [
   },
   {
     id: 7,
-    title: "HSC Excellence",
+    title: "Lorem ipsum",
     para: `Achieved 2nd place in HSC exams amidst extracurricular engagement, grateful for St. Xavier's support.`,
     description: `As the curtains drew on my 12th-grade journey, I found myself standing on the podium of academic achievement, securing the 2nd place in my college academically in the HSC Board examinations. It was a moment of immense pride and gratitude, a culmination of hard work, dedication, and the unwavering support of my teachers. Despite being deeply involved in extracurricular activities, I managed to achieve a remarkable 93.33%, a testament to the balance between academics and holistic development.
       My journey through junior college at St. Xavier's College, Mumbai, was nothing short of exhilarating experiences. From the moment I stepped into the campus, I knew I was embarking on a transformative experience. The vibrant atmosphere fueled my passion for both academics and extracurricular pursuits.
