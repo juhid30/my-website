@@ -70,12 +70,12 @@ function CarouselItem({
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <h1 className={` ${isPhone ? "text-[1.7rem]" : "text-4xl"}  `}>
+                <h1 className={` ${isPhone ? "text-[1.5rem]" : "text-4xl"}  `}>
                   {cards[index].title}
                 </h1>
                 <h3
                   className={` ${
-                    isPhone ? "text-[1.1rem] text-center" : "text-2xl  "
+                    isPhone ? "text-[1.01rem] text-center" : "text-2xl  "
                   }  `}
                 >
                   {cards[index].brief}
