@@ -150,7 +150,7 @@ const MainDisplay = ({
                           transition={spring}
                           className={`handle ${
                             isDarkModeOn ? "bg-[#615b5b6d]" : "bg-white"
-                          } `}
+                          } flex justify-center items-center `}
                         >
                           <motion.img
                             src={isDarkModeOn ? moon : sun}

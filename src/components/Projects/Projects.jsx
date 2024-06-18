@@ -50,7 +50,7 @@ const Projects = ({ expandDiv, isPhone, isDarkModeOn }) => {
       },
     },
     left: {
-      x: isPhone ? "-10%" : "-25%",
+      x: isPhone ? "-12%" : "-25%",
       opacity: 1,
       scale: 0.9,
       //   backgroundImage: "url(" + cards[prevIndex].url + ")",
@@ -63,7 +63,7 @@ const Projects = ({ expandDiv, isPhone, isDarkModeOn }) => {
     },
     right: {
       //   backgroundImage: "url(" + cards[nextIndex].url + ")",
-      x: isPhone ? "10%" : "25%",
+      x: isPhone ? "12%" : "25%",
       opacity: 1,
       scale: 0.9,
 

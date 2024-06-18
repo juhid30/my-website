@@ -57,7 +57,11 @@ const Navbar = ({
                   toggleSwitch();
                 }}
               >
-                <motion.div className="handle" layout transition={spring}>
+                <motion.div
+                  className="handle flex justify-center items-center"
+                  layout
+                  transition={spring}
+                >
                   <img
                     src={isDarkModeOn ? moon : sun}
                     className="cursor-pointer"
