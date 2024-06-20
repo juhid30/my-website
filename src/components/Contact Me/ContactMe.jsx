@@ -72,7 +72,9 @@ const ContactMe = ({ isContactOpen, isPhone, expandDiv, isDarkModeOn }) => {
               {...(isPhone && { variants: { parentVariants } })}
               layout
               className={` ${
-                isPhone ? "relative " : "w-[100%] h-[100%] rounded-[1.8rem]"
+                isPhone
+                  ? "relative rounded-[0.9rem]"
+                  : "w-[100%] h-[100%] rounded-[1.8rem]"
               } contact-div-open  z-[120] absolute top-0 left-0 ${
                 isDarkModeOn ? "bg-[#769f96] " : isPhone ? "" : "bg-yellow-200"
               }   `}
