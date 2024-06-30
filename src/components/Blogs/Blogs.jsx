@@ -109,7 +109,7 @@ const Blogs = ({ isPhone, expandDiv, isDarkModeOn }) => {
                       <h1
                         className={`${
                           isPhone ? "w-[100%]" : ""
-                        } selected-blog-title text-center `}
+                        } selected-blog-title text-center  w-[100%] `}
                       >
                         {" "}
                         {openBlog.title}
