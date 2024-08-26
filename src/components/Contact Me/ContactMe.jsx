@@ -27,7 +27,6 @@ const ContactMe = ({ isContactOpen, isPhone, expandDiv, isDarkModeOn }) => {
       // For now, let's just set submitted to true.
       setSubmitted(true);
       console.log(formData);
-
       emailjs
         .send(
           "service_gk234dg",
