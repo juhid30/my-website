@@ -1,4 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import {
   childVariants,
   fadeInAnim,
@@ -25,6 +26,23 @@ const ContactMe = ({ isContactOpen, isPhone, expandDiv, isDarkModeOn }) => {
       // such as sending data to a backend server.
       // For now, let's just set submitted to true.
       setSubmitted(true);
+      console.log(formData);
+
+      emailjs
+        .send(
+          "service_gk234dg",
+          "template_1ev6cxb",
+          formData,
+          "6c53iMslEEQKGhoCu"
+        )
+        .then(
+          (response) => {
+            console.log("SUCCESS!", response.status, response.text);
+          },
+          (error) => {
+            console.log("FAILED...", error);
+          }
+        );
     }
   };
 
@@ -153,10 +171,10 @@ const ContactMe = ({ isContactOpen, isPhone, expandDiv, isDarkModeOn }) => {
                       return (
                         <>
                           <motion.div
+                            key={index}
                             layout
                             {...(!isPhone && { variants: { fadeInAnim } })}
                             {...(isPhone && { variants: { childVariants } })}
-                            key={index}
                             className={` ${
                               isPhone ? "" : ""
                             } contact-icons-div-indiv relative flex items-center left-6 gap-1 text-xl h-fit my-5`}

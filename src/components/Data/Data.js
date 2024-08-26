@@ -316,60 +316,6 @@ const blogs = [
     `,
     url: Vol1,
   },
-  {
-    id: 4,
-    title: "Lorem ipsum",
-    description: `Participating in our first hackathon was a blend of nerves
-          and excitement. Unsure if our skills were sufficient, we
-          took a leap of faith and registered. Surprisingly, we
-          secured the third position, a testament to our teamwork
-          and determination. The experience was enriching, filled
-          with learning moments and shared laughs. Guided by a
-          supportive organizing committee, we navigated challenges
-          with newfound confidence.This whirlwind experience wasn't
-          just about winning; it was about pushing boundaries,
-          discovering our true potential, and savoring the thrill of
-          the unknown.`,
-    url: terna,
-  },
-  {
-    id: 5,
-    title: "Lorem ipsum",
-    description: `Participating in our first hackathon was a blend of nerves
-          and excitement. Unsure if our skills were sufficient, we
-          took a leap of faith and registered. Surprisingly, we
-          secured the third position, a testament to our teamwork
-          and determination. The experience was enriching, filled
-          with learning moments and shared laughs. Guided by a
-          supportive organizing committee, we navigated challenges
-          with newfound confidence.This whirlwind experience wasn't
-          just about winning; it was about pushing boundaries,
-          discovering our true potential, and savoring the thrill of
-          the unknown.`,
-    url: terna,
-  },
-  {
-    id: 6,
-    title: "Lorem ipsum",
-    para: `Achieved 2nd place in HSC exams amidst extracurricular engagement, grateful for St. Xavier's support.`,
-    description: `As the curtains drew on my 12th-grade journey, I found myself standing on the podium of academic achievement, securing the 2nd place in my college academically in the HSC Board examinations. It was a moment of immense pride and gratitude, a culmination of hard work, dedication, and the unwavering support of my teachers. Despite being deeply involved in extracurricular activities, I managed to achieve a remarkable 93.33%, a testament to the balance between academics and holistic development.
-    My journey through junior college at St. Xavier's College, Mumbai, was nothing short of exhilarating experiences. From the moment I stepped into the campus, I knew I was embarking on a transformative experience. The vibrant atmosphere fueled my passion for both academics and extracurricular pursuits.
-    Balancing academics with extracurricular activities wasn't easy. Juggling between textbooks and rehearsals, laboratory experiments, and sports practices demanded meticulous time management and discipline. However, every challenge was a stepping stone, pushing me to strive for excellence in every aspect of my college life.
-    The key to my success lay in finding synergy between academics and extracurriculars. While academics formed the cornerstone of my college journey, extracurricular activities added depth and richness to my overall experience. Engaging in debates sharpened my critical thinking skills, while participating in cultural events nurtured my creativity and self-expression. Each activity offered valuable lessons that transcended the confines of the classroom, shaping me into a well-rounded individual. Amidst the whirlwind of activities, I found solace in the unwavering support of my teachers. Their guidance, encouragement, and mentorship were instrumental in my academic journey. Whether it was clarifying doubts after class or providing valuable insights during exam preparations, they went above and beyond to ensure my success. Their belief in my potential instilled confidence in me, motivating me to push my boundaries and strive for excellence. Securing the 2nd place in my college academically was not just a personal triumph but a collective victory. It was a testament to the collaborative efforts of my teachers, peers, and family who stood by me every step of the way. Their unwavering support and encouragement fueled my determination, propelling me towards my goals.
-    As I look back on my journey through junior college, I am filled with gratitude for the enriching experiences, lifelong friendships, and invaluable lessons that I have gained. St. Xavier's College will always hold a special place in my heart, for it was here that I discovered my passion, honed my skills, and laid the foundation for a promising future. The journey may have been challenging, but it was also immensely rewarding, reaffirming my belief in the power of perseverance, determination, and the unwavering support of those who believe in you.`,
-    url: Xav1,
-  },
-  {
-    id: 7,
-    title: "Lorem ipsum",
-    para: `Achieved 2nd place in HSC exams amidst extracurricular engagement, grateful for St. Xavier's support.`,
-    description: `As the curtains drew on my 12th-grade journey, I found myself standing on the podium of academic achievement, securing the 2nd place in my college academically in the HSC Board examinations. It was a moment of immense pride and gratitude, a culmination of hard work, dedication, and the unwavering support of my teachers. Despite being deeply involved in extracurricular activities, I managed to achieve a remarkable 93.33%, a testament to the balance between academics and holistic development.
-      My journey through junior college at St. Xavier's College, Mumbai, was nothing short of exhilarating experiences. From the moment I stepped into the campus, I knew I was embarking on a transformative experience. The vibrant atmosphere fueled my passion for both academics and extracurricular pursuits.
-      Balancing academics with extracurricular activities wasn't easy. Juggling between textbooks and rehearsals, laboratory experiments, and sports practices demanded meticulous time management and discipline. However, every challenge was a stepping stone, pushing me to strive for excellence in every aspect of my college life.
-      The key to my success lay in finding synergy between academics and extracurriculars. While academics formed the cornerstone of my college journey, extracurricular activities added depth and richness to my overall experience. Engaging in debates sharpened my critical thinking skills, while participating in cultural events nurtured my creativity and self-expression. Each activity offered valuable lessons that transcended the confines of the classroom, shaping me into a well-rounded individual. Amidst the whirlwind of activities, I found solace in the unwavering support of my teachers. Their guidance, encouragement, and mentorship were instrumental in my academic journey. Whether it was clarifying doubts after class or providing valuable insights during exam preparations, they went above and beyond to ensure my success. Their belief in my potential instilled confidence in me, motivating me to push my boundaries and strive for excellence. Securing the 2nd place in my college academically was not just a personal triumph but a collective victory. It was a testament to the collaborative efforts of my teachers, peers, and family who stood by me every step of the way. Their unwavering support and encouragement fueled my determination, propelling me towards my goals.
-      As I look back on my journey through junior college, I am filled with gratitude for the enriching experiences, lifelong friendships, and invaluable lessons that I have gained. St. Xavier's College will always hold a special place in my heart, for it was here that I discovered my passion, honed my skills, and laid the foundation for a promising future. The journey may have been challenging, but it was also immensely rewarding, reaffirming my belief in the power of perseverance, determination, and the unwavering support of those who believe in you.`,
-    url: Xav1,
-  },
 ];
 
 export {
