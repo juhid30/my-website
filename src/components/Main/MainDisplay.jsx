@@ -5,7 +5,7 @@ import {
   motion,
   useAnimation,
 } from "framer-motion";
-import Resume from "../../assets/Juhi Resume_May_2024.pdf";
+import Resume from "../../assets/Juhi_Deore_Resume.pdf";
 import pattern from "../../assets/7.png";
 import projectImg from "../../assets/complete.png";
 import moon from "../../assets/moon.png";
@@ -353,7 +353,7 @@ const MainDisplay = ({
                     >
                       <h1 className="text-center">
                         {" "}
-                        {isPhone ? "Download resume" : "Download Resume"}
+                        {isPhone ? "Download Resume" : "Download Resume"}
                       </h1>
                     </button>
                   </a>

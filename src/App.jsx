@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import MainDisplay from "./components/Main/MainDisplay";
 // import Sidebar from "./components/Sidebar/Sidebar";
 const App = () => {
-  const [isDarkModeOn, setIsDarkModeOn] = useState(false);
+  const [isDarkModeOn, setIsDarkModeOn] = useState(true);
 
   const toggleSwitch = () => setIsDarkModeOn(!isDarkModeOn);
   const [isPhone, setIsPhone] = useState(window.innerWidth <= 767);
