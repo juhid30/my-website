@@ -44,13 +44,13 @@ const Navbar = ({
       <div
         className={`${
           isDarkModeOn ? "bg-jblack" : "bg-joff"
-        } sticky z-[150] pt-2 top-0 left-0 w-full h-[10.3vh] flex items-center justify-center text-lg `}
+        } sticky z-[150] top-0 left-0 w-full h-[15.3vh] flex items-center justify-center text-lg `}
       >
         {isPhone ? (
           <>
             <div className="float-right z-[120] h-[2rem] w-[90%]  ">
               <div
-                className="switch float-right flex  w-[3.7rem] ml-5 h-[90%] "
+                className="switch float-right flex w-[3.7rem] ml-5 h-[90%] "
                 data-isDarkModeOn={isDarkModeOn}
                 onClick={() => {
                   // console.log("Dark");
@@ -78,11 +78,11 @@ const Navbar = ({
           id="navbar"
           className="content w-[100%] h-[100%] flex items-center justify-center"
         >
-          <div className="w-[90%] h-[100%] flex items-center justify-between">
+          <div className="w-[88.5%] h-[100%] flex items-center justify-between">
             <div
               className={`${
                 isDarkModeOn ? "text-jwhite" : ""
-              } w-[10%] text-4xl text-center cursor-default`}
+              } w-[10%] text-4xl text-start text-center cursor-default`}
             >
               Juhi
             </div>

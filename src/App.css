@@ -226,9 +226,11 @@
   }
   #name {
     font-size: 3rem;
+    line-height: 3rem !important;
   }
   #profession {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    margin-top: 1.2rem !important;
   }
   .transparent-bg-img {
     width: 10rem !important;

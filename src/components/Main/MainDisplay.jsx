@@ -83,7 +83,7 @@ const MainDisplay = ({
       <div
         className={`${
           isDarkModeOn ? "bg-jblack" : ""
-        } flex flex-grow items-center justify-center h-[100%] cursor-default`}
+        } flex flex-grow items-end justify-center h-[100%] cursor-default`}
       >
         <motion.div
           initial="hidden"
@@ -91,7 +91,7 @@ const MainDisplay = ({
           variants={parentVariants}
           className={`${
             isDarkModeOn ? "bg-jblack" : ""
-          } body-container relative w-[96%] h-[38rem] rounded-[1.8rem]  gap-2 p-2 flex flex-col justify-center`}
+          } body-container relative w-[97.5%] h-[37rem] rounded-[1.8rem] gap-2 p-2 mb-4 flex flex-col justify-center`}
         >
           <motion.div className="row-1 gap-3 flex h-[52%]">
             {isContactOpen && !isPhone && (
@@ -113,7 +113,7 @@ const MainDisplay = ({
               variants={childVariants}
               className={`${
                 isDarkModeOn ? "bg-jwhite" : " bg-pink-400"
-              } cell-1 w-[70%] rounded-[1.8rem] p-6 relative overflow-hidden text-left text-[3.6rem]  `}
+              } cell-1 w-[80%] rounded-[1.8rem] p-6 relative overflow-hidden text-left text-[3.6rem]  `}
             >
               {/* [#f7f4e3] */}{" "}
               <div className="text-left intro-text ml-8">
@@ -125,13 +125,13 @@ const MainDisplay = ({
                   </>
                 ) : (
                   <>
-                    <h1 className=" leading-tight text-left">
+                    <h1 className=" leading-tight text-left text-[3.4rem]">
                       {" "}
                       Transforming Ideas into Experiences.
                     </h1>
                     <div
                       className="para-div flex  
-                    mt-7
+                    mt-8
                     items-center"
                     >
                       {/* leading-[6rem] */}
@@ -180,8 +180,8 @@ const MainDisplay = ({
                   ? `expanded about-div  ${
                       isDarkModeOn
                         ? isPhone
-                          ? "bg-[#70213d]"
-                          : " bg-pink-800"
+                          ? "bg-[#ae405b]"
+                          : " bg-[#ae405b]"
                         : ""
                     } `
                   : "w-[40%]"
@@ -189,7 +189,7 @@ const MainDisplay = ({
                 isDarkModeOn
                   ? isPhone
                     ? "bg-[#ae405b]"
-                    : "bg-[#e6456d]"
+                    : "bg-[#ae405b]"
                   : "bg-green-200  "
               } 
                cell-2 flex rounded-[1.8rem] relative overflow-hidden cursor-default`}
@@ -234,7 +234,7 @@ const MainDisplay = ({
             </motion.div>
           </motion.div>
           <div className="row-2 flex h-[47.5%] gap-3">
-            <div className="inner-split gap-3 flex w-[70%]">
+            <div className="inner-split gap-3 flex w-[80%]">
               <motion.div
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -329,12 +329,12 @@ const MainDisplay = ({
                   isDarkModeOn
                     ? isPhone
                       ? "bg-[#b8b3e8]"
-                      : "bg-[#f4b4af]"
+                      : "bg-jwhite"
                     : " bg-red-200"
                 } cell-5-inner-1  p-5 rounded-[1.8rem] flex items-center justify-center w-[100%] h-[40%]`}
               >
                 <h1 className="occupation-text text-3xl text-center ">
-                  Software Developer
+                  Full Stack Developer
                   {/* No. of Projects :{" "}
                   <span className="font-semibold">{cards.length}</span> */}
                 </h1>
