@@ -9,6 +9,14 @@ import java from "../../assets/java.png";
 import react from "../../assets/physics.png";
 import cprog from "../../assets/cropped-removebg-preview.png";
 import tailwind from "../../assets/cropped__1_-removebg-preview.png";
+import next from "../../assets/nextjs.svg";
+import three from "../../assets/brand-threejs.svg";
+import node from "../../assets/nodejs.svg";
+import express from "../../assets/express-original.svg";
+import flask from "../../assets/flask.svg";
+import mongo from "../../assets/mongodb-original-wordmark.svg";
+import firebase from "../../assets/file-type-firebase.svg";
+import python from "../../assets/python.svg";
 import ForgeFinance from "../../assets/ForgeFinance.png";
 import TarakkiDashboard from "../../assets/Tarakki Dashboard.jpeg";
 import PersonalSS from "../../assets/Personal_SS-transformed.png";
@@ -150,30 +158,77 @@ const skillList = [
   {
     id: 1,
     icon: html,
+    title: "HTML",
   },
   {
     id: 2,
     icon: css,
+    title: "CSS",
   },
   {
     id: 3,
     icon: js,
+    title: "Javascript",
   },
   {
     id: 4,
     icon: tailwind,
+    title: "Tailwind",
   },
   {
     id: 5,
     icon: react,
+    title: "React.js",
   },
   {
     id: 6,
-    icon: cprog,
+    icon: next,
+    title: "Next.js",
   },
   {
     id: 7,
+    icon: three,
+    title: "Three.js",
+  },
+  {
+    id: 8,
+    icon: node,
+    title: "Node.js",
+  },
+  {
+    id: 9,
+    icon: express,
+    title: "Express.js",
+  },
+  {
+    id: 10,
+    icon: mongo,
+    title: "MongoDB",
+  },
+  {
+    id: 11,
+    icon: firebase,
+    title: "Firebase",
+  },
+  {
+    id: 12,
+    icon: flask,
+    title: "Flask",
+  },
+  {
+    id: 13,
+    icon: python,
+    title: "Python",
+  },
+  {
+    id: 14,
+    icon: cprog,
+    title: "C Prog.",
+  },
+  {
+    id: 15,
     icon: java,
+    title: "Java",
   },
 ];
 const parentVariants = {
@@ -243,7 +298,7 @@ const cards = [
     url: PersonalSS,
     title: "Juhi Deore",
     brief: "Personal Portfolio",
-    para: `My portfolio showcases projects where I've applied skills and absorbed new insights, reflecting my journey of growth and development through continuous improvement and innovation.`,
+    para: `My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio My portfolio showcases projects where I've applied skills and absorbed new insights, reflecting my journey of growth and development through continuous improvement and innovation.`,
     logo: pp,
     tools: ["HTML", "CSS", "React", "Three.js", "Tailwind CSS"],
   },
@@ -264,6 +319,15 @@ const cards = [
       "Nodejs",
     ],
   },
+  // {
+  //   id: 6,
+  //   url: PersonalSS,
+  //   title: "Juhi Deore",
+  //   brief: "Personal Portfolio",
+  //   para: `My portfolio showcases projects where I've applied skills and absorbed new insights, reflecting my journey of growth and development through continuous improvement and innovation.`,
+  //   logo: pp,
+  //   tools: ["HTML", "CSS", "React", "Three.js", "Tailwind CSS"],
+  // },
 ];
 
 const blogs = [

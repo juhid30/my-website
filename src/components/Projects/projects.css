@@ -10,19 +10,17 @@
  
   margin-top: 5rem;
 } */
-.carousel-content {
-}
 
 .carousel-item {
   border-radius: 1.8rem;
-  padding: 7px 0;
+  /* padding: 7px 0; */
   position: absolute;
   width: 60%;
   height: 92%;
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  object-fit: cover;
+  object-fit: contain;
   display: flex;
   justify-content: center;
 }

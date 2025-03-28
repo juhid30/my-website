@@ -43,7 +43,7 @@ const Projects = ({ expandDiv, isPhone, isDarkModeOn }) => {
       scale: 1.05,
       zIndex: "5",
       // backgroundImage: "url(" + cards[currentIndex].url + ")",
-      boxShadow: "0px 0px 30px 0px rgba(0,0,0,0.3)",
+      // boxShadow: "0px 0px 30px 0px rgba(0,0,0,0.3)",
       transition: {
         type: "spring",
         duration: 1,
@@ -120,8 +120,8 @@ const Projects = ({ expandDiv, isPhone, isDarkModeOn }) => {
         isDarkModeOn
           ? isPhone
             ? "bg-[#be8c63]"
-            : " bg-[#e9a46c]"
-          : " bg-purple-200"
+            : " bg-[#ff8a62]"
+          : " bg-[#bfdcff]"
       }  w-[100%] h-[100%] p-5 rounded-[1.8rem] z-[100] flex flex-col items-center  `}
     >
       <div className="float-right absolute top-4 right-3">
@@ -224,9 +224,9 @@ const Projects = ({ expandDiv, isPhone, isDarkModeOn }) => {
             className={`bwd-btn flex items-center justify-center ${
               isDarkModeOn
                 ? isPhone
-                  ? "bg-[#4a2808]"
-                  : " bg-[#4f2710]"
-                : "bg-[#492c77]"
+                  ? "bg-[#3a2722e3]"
+                  : " bg-[#3a2722e3]"
+                : "bg-[#1a1c5ee6]"
             }`}
             onClick={prevBtn}
           >
@@ -245,8 +245,8 @@ const Projects = ({ expandDiv, isPhone, isDarkModeOn }) => {
               isDarkModeOn
                 ? isPhone
                   ? "bg-[#4a2808]"
-                  : "bg-[#4f2710]"
-                : "bg-[#492c77]"
+                  : "bg-[#3a2722e3]"
+                : "bg-[#1a1c5ee6]"
             }`}
             onClick={nextBtn}
           >

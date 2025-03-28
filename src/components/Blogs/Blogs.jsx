@@ -225,7 +225,7 @@ const Blogs = ({ isPhone, expandDiv, isDarkModeOn }) => {
             </h1>
             <p
               className={`${
-                isPhone ? "p-2 mt-5 text-[85%]" : "text-[80%] text-base"
+                isPhone ? "p-2 mt-4 text-[1.27rem] mb-2" : "text-[80%] text-base"
               } blog-intro-para pl-2 pr-3 w-[100%] `}
             >
               I've found solace in expressing and sharing my feelings and

@@ -5,7 +5,7 @@ import {
   motion,
   useAnimation,
 } from "framer-motion";
-import Resume from "../../assets/Juhi_Deore_Resume.pdf";
+import Resume from "../../assets/Juhi_Resume_March'25.pdf";
 import pattern from "../../assets/7.png";
 import projectImg from "../../assets/complete.png";
 import moon from "../../assets/moon.png";
